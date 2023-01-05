@@ -3,7 +3,7 @@ import PopFunc from './PopFunc';
 import products from './PopProducts';
 import MainMenu from './components/MainMenu';
 import MainHeader from './components/MainHeader';
-import { Button } from 'react-bootstrap';
+// import { Button } from 'react-bootstrap';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
 function App() {
@@ -25,7 +25,7 @@ function App() {
     <div className="App">
       <div className='Header-Info'>
         <div>Need help? Call us: (+98) 0234 456 789</div>
-        <div className='Header-Info'>
+        <div className='Header-Info-R'>
           <div className='OurStore'><i class="bi bi-geo-alt"></i> Our store</div>
           <div><i class="bi bi-truck"></i> Track your order</div>
         </div>
