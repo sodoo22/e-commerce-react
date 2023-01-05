@@ -1,11 +1,17 @@
 .App {
-  text-align: center;
-  width: 700px;
+
+  max-width: 1440px;
   margin: 0 auto;
 }
 
-.App-logo {
-  height: 140px;
+.popProductContainer {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.Product-Image {
+  height: 130px;
   pointer-events: none;
 }
 
@@ -14,14 +20,22 @@
 }
 
 .contaner {
-  display: flex;
-  justify-content: left;
+  position: relative;
   text-align: left;
   margin-top: 30px;
+  width: 250px;
+  height: 250px;
+  border-radius: 5px;
+  border: 1px solid grey;
+}
+
+.popProductImg {
+  margin-top: 10px;
+  text-align: center;
 }
 
 .bluetext {
-  color: #61abfb;
+  color: #003F62;
   margin-top: 10px;
   margin-bottom: 0;
 }
@@ -51,10 +65,68 @@
   margin-bottom: 0;
 }
 
-.textbox p {
+.price {
+  color: #4A4A4A;
+  font-size: 17px;
+  font-weight: 600;
   margin-top: 5px;
 }
 
 .bi {
-  color: #61abfb;
+  color: #a8a8a8;
+  font-size: 13px;
+  margin-right: 4px;
+}
+
+.cardImage {
+  position: absolute;
+  right: 15px;
+  bottom: 25px;
+  width: 40px;
+}
+
+.Menus {
+  margin-left: 15px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.Header-Info {
+  font-size: 14px;
+  font-weight: 400;
+  color: #292D32;
+  display: flex;
+  justify-content: space-between;
+  height: 50px;
+  align-items: center;
+}
+
+.Header-Info .bi {
+  font-size: 18px;
+  margin-right: 15px;
+}
+
+.Header-Info .OurStore {
+  margin-right: 30px;
+}
+
+.MainHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #003F62;
+  height: 100px;
+}
+
+.MainHeader img {
+  width: 130px;
+  margin-left: 50px;
+}
+
+.MainHeader .User-Info {
+  display: flex;
+  justify-content: space-between;
+  width: 200px;
+  color: white;
+  margin-right: 40px;
 }
