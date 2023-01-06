@@ -5,8 +5,23 @@ import MainMenu from './components/MainMenu';
 import MainHeader from './components/MainHeader';
 // import { Button } from 'react-bootstrap';
 import 'bootstrap-icons/font/bootstrap-icons.css';
+import ProductSlide from './ProductSlide';
+import AliceCarousel from 'react-alice-carousel'
+import carouselData from './data/carousel';
 
 function App() {
+  const images = carouselData.map(data => {
+    return (
+      <div className='caroContainer py-5'>
+        <div>
+          <h2>{data.title}</h2>
+          <button className='btn btn-warning rounded-4 px-4 py-3 text-white'>Shop Now</button>
+          <button className='btn btn-outline-secondary rounded-4  px-4 py-3 ms-3'>Shop Now</button>
+        </div>
+        <img src={data.url} className="sliderimg" />
+      </div>
+    )
+  })
 
   const productsList = products.map((product => {
     console.log(product);
@@ -17,6 +32,14 @@ function App() {
       price={product.price}
       // description={product.description}
       cardImage={product.cardImage}
+    />
+  }))
+
+  const productSlider = products.map((product => {
+    return <ProductSlide
+      productImageUrl={product.productImageUrl}
+      title={product.title}
+      price={product.price}
     />
   }))
 
@@ -39,7 +62,14 @@ function App() {
       {/* <button className='btn btn-primary'>Test</button>
       <Button variant="danger">Test</Button> */}
 
+      <AliceCarousel autoPlay autoPlayInterval="3000" disableButtonsControls="true">
+        {images}
+      </AliceCarousel>
 
+
+      <div className='ProductSliderContainer'>
+        {productSlider}
+      </div>
 
 
       <h2>Popular Products</h2>
