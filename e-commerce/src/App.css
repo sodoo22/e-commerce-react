@@ -17,6 +17,7 @@
   justify-content: space-around;
   flex-wrap: wrap;
   background-color: white;
+  padding: 20px;
 }
 
 .Product-Image {
@@ -36,7 +37,7 @@
   height: 300px;
   border-radius: 5px;
   border: 1px solid grey;
-  background-color: aliceblue;
+  background-color: white;
 }
 
 .popProductImg {
@@ -160,7 +161,7 @@
   position: relative;
   text-align: left;
   margin-top: 30px;
-  width: 350px;
+  width: 400px;
   height: 150px;
   border-radius: 5px;
   border: 1px solid grey;
@@ -172,7 +173,7 @@
   justify-content: space-around;
   overflow: hidden;
   gap: 30px;
-  background-color: aliceblue;
+  background-color: white;
 }
 
 .caroContainer {
@@ -190,4 +191,10 @@
   color: #1B5A7D;
   font-weight: 700;
   margin-bottom: 50px;
+}
+
+.alice-carousel__prev-btn {
+  position: absolute;
+  left: -400px;
+  top: 60px;
 }
