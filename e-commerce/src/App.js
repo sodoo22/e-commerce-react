@@ -89,8 +89,41 @@ function App() {
         </AliceCarousel>
       </div>
 
-      <h2>Popular Products</h2>
+      <div className="d-flex justify-content-between align-items-center px-5">
+        <div>
+          <h2>Popular Products</h2>
+        </div>
+        <div>
+          <button className="btn btn-outline-secondary rounded-4  px-4 py-2 ms-3">
+            Cameras
+          </button>
+          <button className="btn btn-outline-secondary rounded-4  px-4 py-2 ms-3">
+            Laptops
+          </button>
+          <button className="btn btn-outline-secondary rounded-4  px-4 py-2 ms-3">
+            Tablets
+          </button>
+          <button className="btn btn-outline-secondary rounded-4  px-4 py-2 ms-3">
+            Mouse
+          </button>
+        </div>
+      </div>
       <div className="popProductContainer">{productsList}</div>
+
+      <div className="p-5">
+        <div className="banner">
+          <div className="banner-title">
+            <button className="btn btn-warning text-white rounded-4  px-4 py-2 ms-3">
+              New Laptops
+            </button>
+            <h2>Sale up to 50% off</h2>
+            <p>12 inch hd display</p>
+            <button className="btn btn-warning text-white rounded-4  px-4 py-2 ms-3">
+              Shop Now
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

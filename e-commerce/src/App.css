@@ -198,3 +198,24 @@
   left: -400px;
   top: 60px;
 }
+
+.banner {
+  width: 1315px;
+  height: 417px;
+  background-image: url("images/banner1.png");
+}
+
+.banner-title {
+  text-align: center;
+  padding-left: 500px;
+  padding-top: 100px;
+  color:#2E8FC5;
+  font-weight: 700;
+  font-size: 41px;
+
+}
+
+.banner-title p {
+  font-size: 18px;
+  color: white;
+}
