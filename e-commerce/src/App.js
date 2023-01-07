@@ -11,6 +11,13 @@ import AliceCarousel from "react-alice-carousel";
 import carouselData from "./data/carousel";
 import slideProduct from "./data/slideProduct";
 
+const responsive = {
+  0: { items: 1 },
+  568: { items: 2 },
+  1024: { items: 3 },
+  1440: { items: 4 },
+};
+
 function App() {
   const images = carouselData.map((data) => {
     return (
@@ -76,9 +83,10 @@ function App() {
 
       <AliceCarousel
         autoPlay
+        infinite
         autoPlayInterval="3000"
         disableButtonsControls="true"
-
+        mouseTracking
       >
         {images}
 
@@ -119,29 +127,33 @@ function App() {
       </div>
       <div className="popProductContainer">{productsList}</div>
 
-      <div className="p-5">
-        <div className="banner">
-          <div className="banner-title">
-            <button className="btn btn-warning text-white rounded-4  px-4 py-2 ms-3">
-              New Laptops
-            </button>
-            <h2>Sale up to 50% off</h2>
-            <p>12 inch hd display</p>
-            <button className="btn btn-warning text-white rounded-4  px-4 py-2 ms-3">
-              Shop Now
-            </button>
-          </div>
+      <div className="container banner p-5">
+
+        <div className="banner-title">
+          <button className="btn btn-warning text-white rounded-4  px-4 py-2 ms-3">
+            New Laptops
+          </button>
+          <h2>Sale up to 50% off</h2>
+          <p>12 inch hd display</p>
+          <button className="btn btn-warning text-white rounded-4  px-4 py-2 ms-3">
+            Shop Now
+          </button>
         </div>
+
       </div>
-      <AliceCarousel
-        autoPlay
-        autoPlayInterval="3000"
-        disableButtonsControls="true"
+      <div className='container justify-content-center'>
+        <AliceCarousel
+          autoPlay
+          autoPlayInterval="3000"
+          disableButtonsControls="true"
+          responsive={responsive}
+          mouseTracking
 
-      >
-        {productsList}
+        >
+          {productsList}
 
-      </AliceCarousel>
+        </AliceCarousel>
+      </div>
     </div>
   );
 }

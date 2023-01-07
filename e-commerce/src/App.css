@@ -208,14 +208,14 @@
 }
 
 .banner {
-  width: 1315px;
+  max-width: 1315px;
   height: 417px;
   background-image: url("images/banner1.png");
 }
 
 .banner-title {
   text-align: center;
-  padding-left: 500px;
+  /* padding-left: 500px; */
   padding-top: 100px;
   color: #2E8FC5;
   font-weight: 700;
