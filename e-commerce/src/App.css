@@ -194,8 +194,16 @@
 }
 
 .alice-carousel__prev-btn {
+  background-color: #003F62;
   position: absolute;
-  left: -400px;
+  left: -600px;
+  top: 60px;
+}
+
+.alice-carousel__next-btn {
+  background-color: #003F62;
+  position: absolute;
+  left: 1200px;
   top: 60px;
 }
 
@@ -209,7 +217,7 @@
   text-align: center;
   padding-left: 500px;
   padding-top: 100px;
-  color:#2E8FC5;
+  color: #2E8FC5;
   font-weight: 700;
   font-size: 41px;
 

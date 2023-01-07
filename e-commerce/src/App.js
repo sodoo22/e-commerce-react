@@ -1,3 +1,4 @@
+import React from 'react';
 import "./App.css";
 import PopFunc from "./PopFunc";
 import products from "./PopProducts";
@@ -13,6 +14,7 @@ import slideProduct from "./data/slideProduct";
 function App() {
   const images = carouselData.map((data) => {
     return (
+
       <div className="caroContainer py-5">
         <div>
           <h2>{data.title}</h2>
@@ -25,6 +27,7 @@ function App() {
         </div>
         <img src={data.url} className="sliderimg" />
       </div>
+
     );
   });
 
@@ -75,17 +78,23 @@ function App() {
         autoPlay
         autoPlayInterval="3000"
         disableButtonsControls="true"
+
       >
         {images}
+
       </AliceCarousel>
+
 
       <div className="ProductSliderContainer">
         <AliceCarousel
           autoPlay
           autoPlayInterval="3000"
-          disableButtonsControls="true"
+        // disableButtonsControls="true"
+
         >
+
           {sliderProduct}
+
         </AliceCarousel>
       </div>
 
@@ -124,6 +133,15 @@ function App() {
           </div>
         </div>
       </div>
+      <AliceCarousel
+        autoPlay
+        autoPlayInterval="3000"
+        disableButtonsControls="true"
+
+      >
+        {productsList}
+
+      </AliceCarousel>
     </div>
   );
 }
