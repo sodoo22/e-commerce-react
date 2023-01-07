@@ -46,6 +46,7 @@ function App() {
         productImageUrl={product.productImageUrl}
         title={product.title}
         price={product.price}
+        votes={product.votes}
         // description={product.description}
         cardImage={product.cardImage}
       />
@@ -81,16 +82,18 @@ function App() {
       {/* <button className='btn btn-primary'>Test</button>
       <Button variant="danger">Test</Button> */}
 
-      <AliceCarousel
-        autoPlay
-        infinite
-        autoPlayInterval="3000"
-        disableButtonsControls="true"
-        mouseTracking
-      >
-        {images}
+      <div className='container-banner'>
+        <AliceCarousel
+          autoPlay
+          infinite
+          autoPlayInterval="3000"
+          disableButtonsControls="true"
+          mouseTracking
+        >
+          {images}
 
-      </AliceCarousel>
+        </AliceCarousel>
+      </div>
 
 
       <div className="ProductSliderContainer">

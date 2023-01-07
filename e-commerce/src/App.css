@@ -227,3 +227,31 @@
   font-size: 18px;
   color: white;
 }
+
+
+.container-banner .alice-carousel__dots {
+  position: absolute;
+  top: 330px;
+  left: 150px;
+}
+
+.alice-carousel__dots-item:not(.__custom) {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  border-radius: 50%;
+  background-color: #e0e4fb;
+}
+
+.alice-carousel__dots-item:not(.__custom):not(:last-child) {
+  margin-right: 20px;
+}
+
+.alice-carousel__dots-item:not(.__custom):hover,
+.alice-carousel__dots-item:not(.__custom).__active {
+  background-color: #f27f09;
+}
+
+.star-svg {
+  width: 25px;
+}
