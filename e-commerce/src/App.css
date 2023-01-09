@@ -257,3 +257,7 @@
 .star-svg {
   width: 25px;
 }
+
+.input-group{
+  max-width: 200px;
+}
