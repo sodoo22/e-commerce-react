@@ -94,6 +94,7 @@
   right: 15px;
   bottom: 25px;
   width: 40px;
+  cursor: pointer;
 }
 
 .Menus {
@@ -166,13 +167,14 @@
   border-radius: 5px;
   border: 1px solid grey;
   background-color: white;
+  
 }
 
 .ProductSliderContainer {
   display: flex;
-  justify-content: space-around;
-  overflow: hidden;
-  gap: 30px;
+  justify-content: space-between;
+  /* overflow: hidden; */
+  gap: 8=30px;
   background-color: white;
 }
 
@@ -194,17 +196,17 @@
 }
 
 .alice-carousel__prev-btn {
-  background-color: #003F62;
+  /* background-color: #003F62; */
   position: absolute;
-  left: -600px;
-  top: 60px;
+  left: -700px;
+  top: 75px;
 }
 
 .alice-carousel__next-btn {
-  background-color: #003F62;
+  /* background-color: #003F62; */
   position: absolute;
   left: 1200px;
-  top: 60px;
+  top: 75px;
 }
 
 .banner {

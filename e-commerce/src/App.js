@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import "./App.css";
 import PopFunc from "./PopFunc";
 import products from "./PopProducts";
@@ -21,8 +21,7 @@ const responsive = {
 function App() {
   const images = carouselData.map((data) => {
     return (
-
-      <div className="caroContainer py-5">
+      <div className="caroContainer flex-md-row flex-column-reverse py-5">
         <div>
           <h2>{data.title}</h2>
           <button className="btn btn-warning rounded-4 px-4 py-3 text-white">
@@ -34,7 +33,6 @@ function App() {
         </div>
         <img src={data.url} className="sliderimg" />
       </div>
-
     );
   });
 
@@ -42,7 +40,7 @@ function App() {
     console.log(product);
     return (
       <PopFunc
-        // votes={product.votes}
+        id={product.id}
         productImageUrl={product.productImageUrl}
         title={product.title}
         price={product.price}
@@ -82,7 +80,7 @@ function App() {
       {/* <button className='btn btn-primary'>Test</button>
       <Button variant="danger">Test</Button> */}
 
-      <div className='container-banner'>
+      <div className="container-banner">
         <AliceCarousel
           autoPlay
           infinite
@@ -91,21 +89,16 @@ function App() {
           mouseTracking
         >
           {images}
-
         </AliceCarousel>
       </div>
 
-
-      <div className="ProductSliderContainer">
+      <div className="ProductSliderContainer container">
         <AliceCarousel
           autoPlay
           autoPlayInterval="3000"
-        // disableButtonsControls="true"
-
+          // disableButtonsControls="true"
         >
-
           {sliderProduct}
-
         </AliceCarousel>
       </div>
 
@@ -128,10 +121,12 @@ function App() {
           </button>
         </div>
       </div>
-      <div className="popProductContainer">{productsList}</div>
+      <AliceCarousel autoPlay autoPlayInterval="3000">
+        <div className="popProductContainer">{productsList}</div>
+        <div className="popProductContainer">{productsList}</div>
+      </AliceCarousel>
 
       <div className="container banner p-5">
-
         <div className="banner-title">
           <button className="btn btn-warning text-white rounded-4  px-4 py-2 ms-3">
             New Laptops
@@ -142,19 +137,16 @@ function App() {
             Shop Now
           </button>
         </div>
-
       </div>
-      <div className='container justify-content-center'>
+      <div className="container justify-content-center">
         <AliceCarousel
           autoPlay
           autoPlayInterval="3000"
           disableButtonsControls="true"
           responsive={responsive}
           mouseTracking
-
         >
           {productsList}
-
         </AliceCarousel>
       </div>
     </div>

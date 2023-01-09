@@ -1,7 +1,12 @@
 import React, { useState } from 'react'
 import { Rating } from 'react-simple-star-rating'
 
-function PopFunc({ productImageUrl, price, title, cardImage, votes}) {
+function PopFunc({ id, productImageUrl, price, title, cardImage, votes}) {
+
+    function handleUpVote(proId)   {
+        console.log( 'Clicked' );
+        console.log( proId );
+    }
 
     const [rating, setRating] = useState(0)
 
@@ -35,7 +40,9 @@ console.log( {votes} );
       />
             </div>
             <div>
+                <a onClick={()=>(handleUpVote(id))}>
                 <img src={cardImage} className="cardImage" alt="logo" />
+                </a>
             </div>
         </div>
     )
