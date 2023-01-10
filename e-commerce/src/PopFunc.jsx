@@ -22,7 +22,7 @@ function PopFunc({ id, productImageUrl, price, title, cardImage, votes}) {
   const onPointerMove = (value, index) => console.log(value, index)
 console.log( {votes} );
     return (
-        <div className="contaner">
+        <div className="contaner ">
             <div className="popProductImg">
                 <img src={productImageUrl} className="Product-Image rounded" alt="logo" />
             </div>
@@ -30,14 +30,12 @@ console.log( {votes} );
                 <p className="bluetext">{title}</p>
                 <p className="price">${price}</p>
                 <Rating
-        onClick={handleRating}
-        onPointerEnter={onPointerEnter}
-        onPointerLeave={onPointerLeave}
-        onPointerMove={onPointerMove}
-        initialValue={votes}
-        
-        /* Available Props */
-      />
+                    onClick={handleRating}
+                    onPointerEnter={onPointerEnter}
+                    onPointerLeave={onPointerLeave}
+                    onPointerMove={onPointerMove}
+                    initialValue={votes}
+                />
             </div>
             <div>
                 <a onClick={()=>(handleUpVote(id))}>

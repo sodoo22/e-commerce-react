@@ -10,15 +10,23 @@ import ProductSlide from "./ProductSlide";
 import AliceCarousel from "react-alice-carousel";
 import carouselData from "./data/carousel";
 import slideProduct from "./data/slideProduct";
-
-const responsive = {
-  0: { items: 1 },
-  568: { items: 2 },
-  1024: { items: 3 },
-  1440: { items: 4 },
-};
+import slideProduct1 from "./data/slideProduct1";
+import ProductSlide1 from "./ProductSlide1";
 
 function App() {
+  const responsiveSlide1 = {
+    0: { items: 1 },
+    568: { items: 2 },
+    1024: { items: 3 },
+    1440: { items: 3 },
+  };
+  const responsive = {
+    0: { items: 1 },
+    568: { items: 2 },
+    1024: { items: 3 },
+    1440: { items: 4 },
+  };
+
   const images = carouselData.map((data) => {
     return (
       <div className="caroContainer flex-md-row flex-column-reverse py-5">
@@ -45,8 +53,17 @@ function App() {
         title={product.title}
         price={product.price}
         votes={product.votes}
-        // description={product.description}
         cardImage={product.cardImage}
+      />
+    );
+  });
+
+  const sliderProduct1 = slideProduct1.map((product) => {
+    return (
+      <ProductSlide1
+        url={product.url}
+        title={product.title}
+        items={product.items}
       />
     );
   });
@@ -96,11 +113,23 @@ function App() {
         <AliceCarousel
           autoPlay
           autoPlayInterval="3000"
+          responsive={responsiveSlide1}
+          infinite
+        >
+          {sliderProduct1}
+        </AliceCarousel>
+      </div>
+
+      {/* 
+      <div className="ProductSliderContainer container">
+        <AliceCarousel
+          autoPlay
+          autoPlayInterval="3000"
           // disableButtonsControls="true"
         >
           {sliderProduct}
         </AliceCarousel>
-      </div>
+      </div> */}
 
       <div className="d-flex justify-content-between align-items-center px-5">
         <div>
@@ -121,13 +150,17 @@ function App() {
           </button>
         </div>
       </div>
-      <AliceCarousel autoPlay autoPlayInterval="3000">
+      <AliceCarousel
+        autoPlay
+        autoPlayInterval="3000"
+        disableButtonsControls="true"
+      >
         <div className="popProductContainer">{productsList}</div>
         <div className="popProductContainer">{productsList}</div>
       </AliceCarousel>
 
-      <div className="container banner p-5">
-        <div className="banner-title">
+      <div className="container banner d-flex justify-content-end">
+        <div className="banner-title col-6">
           <button className="btn btn-warning text-white rounded-4  px-4 py-2 ms-3">
             New Laptops
           </button>
@@ -138,7 +171,8 @@ function App() {
           </button>
         </div>
       </div>
-      <div className="container justify-content-center">
+
+      <div className="container justify-content-center d-flex flex-wrap">
         <AliceCarousel
           autoPlay
           autoPlayInterval="3000"
