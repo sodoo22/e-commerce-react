@@ -12,8 +12,13 @@ import carouselData from "./data/carousel";
 import slideProduct from "./data/slideProduct";
 import slideProduct1 from "./data/slideProduct1";
 import ProductSlide1 from "./ProductSlide1";
+import { useState } from "react";
+import Button from "react-bootstrap/Button";
 
 function App() {
+  const [show, setShow] = useState(false);
+  const [productList, setProductList] = useState(products);
+
   const responsiveSlide1 = {
     0: { items: 1 },
     568: { items: 2 },
@@ -26,6 +31,22 @@ function App() {
     1024: { items: 3 },
     1440: { items: 4 },
   };
+
+  function showElement(productId) {
+    console.log(productId);
+
+    const newProductList = productList.map((product) => {
+      if (product.id == productId) {
+        return Object.assign({}, product, {
+          show: !show,
+        });
+      } else {
+        return product;
+      }
+    });
+
+    setProductList(newProductList);
+  }
 
   const images = carouselData.map((data) => {
     return (
@@ -44,8 +65,7 @@ function App() {
     );
   });
 
-  const productsList = products.map((product) => {
-    console.log(product);
+  const productsList = productList.map((product) => {
     return (
       <PopFunc
         id={product.id}
@@ -54,6 +74,9 @@ function App() {
         price={product.price}
         votes={product.votes}
         cardImage={product.cardImage}
+        showElem={showElement}
+        show={product.show}
+        setShow={setShow}
       />
     );
   });
@@ -156,7 +179,7 @@ function App() {
         disableButtonsControls="true"
       >
         <div className="popProductContainer">{productsList}</div>
-        <div className="popProductContainer">{productsList}</div>
+        {/* <div className="popProductContainer">{productsList}</div> */}
       </AliceCarousel>
 
       <div className="container banner d-flex justify-content-end">
@@ -183,6 +206,10 @@ function App() {
           {productsList}
         </AliceCarousel>
       </div>
+
+      {/* <Button variant="primary" onClick={handleShow}>
+        Launch demo modal
+      </Button> */}
     </div>
   );
 }

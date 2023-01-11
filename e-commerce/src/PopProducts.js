@@ -12,6 +12,7 @@ const products = [
     votes: generateVoteCount(),
     cardImage: "images/products/card.svg",
     productImageUrl: "images/products/pro1.png",
+    show: false,
   },
   {
     id: 2,
@@ -22,6 +23,7 @@ const products = [
     votes: generateVoteCount(),
     cardImage: "images/products/card.svg",
     productImageUrl: "images/products/pro2.png",
+    show: false,
   },
   {
     id: 3,
@@ -32,6 +34,7 @@ const products = [
     votes: generateVoteCount(),
     cardImage: "images/products/card.svg",
     productImageUrl: "images/products/pro3.png",
+    show: false,
   },
   {
     id: 4,
@@ -42,6 +45,7 @@ const products = [
     votes: generateVoteCount(),
     cardImage: "images/products/card.svg",
     productImageUrl: "images/products/pro4.png",
+    show: false,
   },
   {
     id: 5,
@@ -52,6 +56,7 @@ const products = [
     votes: generateVoteCount(),
     cardImage: "images/products/card.svg",
     productImageUrl: "images/products/pro4.png",
+    show: false,
   },
   {
     id: 6,
@@ -62,6 +67,7 @@ const products = [
     votes: generateVoteCount(),
     cardImage: "images/products/card.svg",
     productImageUrl: "images/products/pro1.png",
+    show: false,
   },
   {
     id: 7,
@@ -72,6 +78,7 @@ const products = [
     votes: generateVoteCount(),
     cardImage: "images/products/card.svg",
     productImageUrl: "images/products/pro2.png",
+    show: false,
   },
   {
     id: 8,
@@ -82,6 +89,7 @@ const products = [
     votes: generateVoteCount(),
     cardImage: "images/products/card.svg",
     productImageUrl: "images/products/pro3.png",
+    show: false,
   },
 ];
 export default products;
