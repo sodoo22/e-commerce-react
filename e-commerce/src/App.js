@@ -1,11 +1,10 @@
 import React from "react";
 import "./App.css";
+import "bootstrap-icons/font/bootstrap-icons.css";
 import PopFunc from "./PopFunc";
 import products from "./PopProducts";
 import MainMenu from "./components/MainMenu";
 import MainHeader from "./components/MainHeader";
-// import { Button } from 'react-bootstrap';
-import "bootstrap-icons/font/bootstrap-icons.css";
 import ProductSlide from "./ProductSlide";
 import AliceCarousel from "react-alice-carousel";
 import carouselData from "./data/carousel";
@@ -13,10 +12,10 @@ import slideProduct from "./data/slideProduct";
 import slideProduct1 from "./data/slideProduct1";
 import ProductSlide1 from "./ProductSlide1";
 import { useState } from "react";
-import Button from "react-bootstrap/Button";
 
 function App() {
   const [show, setShow] = useState(false);
+
   const [productList, setProductList] = useState(products);
 
   const responsiveSlide1 = {

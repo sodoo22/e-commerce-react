@@ -21,12 +21,11 @@ function PopFunc({
     // console.log(proId);
   }
   //   console.log(id);
-
+  const handleClose = () => setShow(false);
   const handleShow = () => {
     showElem(id);
-    setShow(show);
+    // setShow(show);
   };
-  const handleClose = () => setShow(false);
 
   const [rating, setRating] = useState(0);
 
@@ -69,7 +68,7 @@ function PopFunc({
         </div>
       </button>
 
-      <Modal show={show} onHide={handleClose}>
+      <Modal show={show} onClick={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>{title}</Modal.Title>
         </Modal.Header>
