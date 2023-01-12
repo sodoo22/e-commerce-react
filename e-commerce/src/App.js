@@ -31,13 +31,13 @@ function App() {
     1440: { items: 4 },
   };
 
-  function showElement(productId) {
+  function handleModal(productId, isShow) {
     console.log(productId);
 
     const newProductList = productList.map((product) => {
       if (product.id == productId) {
         return Object.assign({}, product, {
-          show: !show,
+          show: isShow,
         });
       } else {
         return product;
@@ -46,6 +46,22 @@ function App() {
 
     setProductList(newProductList);
   }
+
+  // function closeElement(productId) {
+  //   console.log(productId);
+
+  //   const newProductList = productList.map((product) => {
+  //     if (product.id == productId) {
+  //       return Object.assign({}, product, {
+  //         show: false,
+  //       });
+  //     } else {
+  //       return product;
+  //     }
+  //   });
+
+  //   setProductList(newProductList);
+  // }
 
   const images = carouselData.map((data) => {
     return (
@@ -73,9 +89,11 @@ function App() {
         price={product.price}
         votes={product.votes}
         cardImage={product.cardImage}
-        showElem={showElement}
+        // showElem={showElement}
+        handleModal={handleModal}
         show={product.show}
         setShow={setShow}
+        // closeElem={closeElement}
       />
     );
   });

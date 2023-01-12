@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Rating } from "react-simple-star-rating";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
+import PopFuncDetail from "./PopFuncDetail";
 
 function PopFunc({
   id,
@@ -12,19 +13,28 @@ function PopFunc({
   votes,
   setShow,
   show,
-  showElem,
+  // showElem,
+  // closeElem,
+  handleModal,
 }) {
   function handleUpVote(proId) {
     // console.log("Clicked");
     console.log(proId);
-    showElem(proId);
+    // showElem(proId);
     // console.log(proId);
   }
   //   console.log(id);
-  const handleClose = () => setShow(false);
+  const handleClose = (id) => {
+    // console.log("closing");
+    // console.log(id);
+    // setShow(false);
+    handleModal(id, false);
+    // closeElem(id);
+  };
   const handleShow = () => {
-    showElem(id);
+    // showElem(id);
     // setShow(show);
+    handleModal(id, true);
   };
 
   const [rating, setRating] = useState(0);
@@ -68,7 +78,12 @@ function PopFunc({
         </div>
       </button>
 
-      <Modal show={show} onClick={handleClose}>
+      <Modal
+        show={show}
+        onClick={() => {
+          handleClose(id);
+        }}
+      >
         <Modal.Header closeButton>
           <Modal.Title>{title}</Modal.Title>
         </Modal.Header>
@@ -91,6 +106,7 @@ function PopFunc({
               initialValue={votes}
             />
           </div>
+          <PopFuncDetail />
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
