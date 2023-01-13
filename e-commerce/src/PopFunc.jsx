@@ -16,6 +16,8 @@ function PopFunc({
   // showElem,
   // closeElem,
   handleModal,
+  setWishList,
+  wishList,
 }) {
   function handleUpVote(proId) {
     // console.log("Clicked");
@@ -37,6 +39,12 @@ function PopFunc({
     handleModal(id, true);
   };
 
+  function handleWish(proId) {
+    console.log("Pruduct ID = ", proId);
+    setWishList(wishList + 1);
+    setWishList([...wishList, { id: id, name: title }]);
+  }
+
   const [rating, setRating] = useState(0);
 
   // Catch Rating value
@@ -52,8 +60,16 @@ function PopFunc({
   //   console.log({ votes });
   return (
     <div>
-      <button className="contaner " onClick={handleShow}>
-        <div className="popProductImg">
+      <button className="contaner ">
+        <a
+          className="d-flex justify-content-end"
+          onClick={() => {
+            handleWish(id);
+          }}
+        >
+          <i class="bi bi-heart"></i>
+        </a>
+        <div className="popProductImg" onClick={handleShow}>
           <img
             src={productImageUrl}
             className="Product-Image rounded"

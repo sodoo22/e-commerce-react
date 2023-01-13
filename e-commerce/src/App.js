@@ -15,7 +15,8 @@ import { useState } from "react";
 
 function App() {
   const [show, setShow] = useState(false);
-
+  const [wishList, setWishList] = useState([]);
+  // const [wishListProduct, setWishListProduct] = useState([]);
   const [productList, setProductList] = useState(products);
 
   const responsiveSlide1 = {
@@ -47,22 +48,6 @@ function App() {
     setProductList(newProductList);
   }
 
-  // function closeElement(productId) {
-  //   console.log(productId);
-
-  //   const newProductList = productList.map((product) => {
-  //     if (product.id == productId) {
-  //       return Object.assign({}, product, {
-  //         show: false,
-  //       });
-  //     } else {
-  //       return product;
-  //     }
-  //   });
-
-  //   setProductList(newProductList);
-  // }
-
   const images = carouselData.map((data) => {
     return (
       <div className="caroContainer flex-md-row flex-column-reverse py-5">
@@ -93,6 +78,8 @@ function App() {
         handleModal={handleModal}
         show={product.show}
         setShow={setShow}
+        wishList={wishList}
+        setWishList={setWishList}
         // closeElem={closeElement}
       />
     );
@@ -131,7 +118,7 @@ function App() {
       </div>
 
       <div className="menu-container">
-        <MainHeader />
+        <MainHeader wishList={wishList} />
         <MainMenu />
       </div>
       {/* <button className='btn btn-primary'>Test</button>

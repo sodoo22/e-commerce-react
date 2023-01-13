@@ -152,7 +152,7 @@
 }
 
 .User-Info-R {
-  font-size: 10px;
+  font-size: 15px;
   background-color: darkorange;
   border-radius: 50%;
 }
@@ -264,4 +264,18 @@
 
 .input-group{
   /* max-width: 200px; */
+}
+
+.wishDivCon{
+  position: absolute;
+  text-align: center;
+  color: #f27f09;
+  padding: 10px;
+  top: 130px;
+  right: 120px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  z-index: 20;
+  width: 250px;
+  display: none;
 }
