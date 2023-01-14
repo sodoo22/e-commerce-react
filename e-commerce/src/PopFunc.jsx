@@ -39,11 +39,36 @@ function PopFunc({
     handleModal(id, true);
   };
 
+
+  let productsPcs = wishList.length;
+
   function handleWish(proId) {
     console.log("Pruduct ID = ", proId);
-    setWishList(wishList + 1);
-    setWishList([...wishList, { id: id, name: title }]);
+    // setWishList([...wishList, { id: id, name: title }]);
+    // setWishList(wishList + 1);
+    // console.log(wishList[0].id);
+
+    if (wishList.length == 0) {
+      console.log('TEST');
+      // return wishList;
+      setWishList([...wishList, { id: id, name: title }]);
+    }
+    wishList.map(el => {
+      console.log(el);
+      if (el.id === proId) {
+        console.log(wishList);
+        console.log('Ene baraa bn');
+        wishList.splice(0, 1);
+        console.log(wishList);
+      }
+
+    })
+    // return wishList;
   }
+  console.log("Wish list Pcs = " + productsPcs)
+
+
+
 
   const [rating, setRating] = useState(0);
 
