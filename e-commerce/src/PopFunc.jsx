@@ -52,17 +52,28 @@ function PopFunc({
       console.log('TEST');
       // return wishList;
       setWishList([...wishList, { id: id, name: title }]);
+      return wishList;
     }
-    wishList.map(el => {
-      console.log(el);
-      if (el.id === proId) {
-        console.log(wishList);
-        console.log('Ene baraa bn');
-        wishList.splice(0, 1);
-        console.log(wishList);
-      }
+    // wishList.map((el, index) => {
+    //   console.log(el.id);
+    //   if (el.id !== proId) {
+    //     setWishList([...wishList, { id: id, name: title }]);
+    //     console.log(wishList);
+    //     console.log('Ene baraa bn');
+    //     wishList.splice(index, 1);
+    //     console.log(wishList);
+    //     // return wishList;
+    //   }
+    //   if (el.id == proId) {
+    //     // setWishList([...wishList, { id: id, name: title }]);
+    //     console.log(wishList);
+    //     console.log('Ene baraa bn');
+    //     wishList.splice(index, 1);
+    //     console.log(wishList);
+    //     return wishList;
+    //   }
 
-    })
+    // })
     // return wishList;
   }
   console.log("Wish list Pcs = " + productsPcs)
