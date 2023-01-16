@@ -10,6 +10,16 @@ export default function MainHeader(props) {
   }
   console.log(props.wishList);
 
+  function CartItemsDiv() {
+    console.log("wishlist clicked");
+    let cartItemsDiv = document.getElementById("CartItemsToggler");
+    if (cartItemsDiv.style.display != "block") {
+      cartItemsDiv.style = "display:block";
+    } else {
+      cartItemsDiv.style = "display:none";
+    }
+  }
+
   //   function removeWishList(id) {
 
   //   }
@@ -40,9 +50,9 @@ export default function MainHeader(props) {
         <div>
           <i class="bi bi-person"></i> Sign in
         </div>
-        <div onClick={wishListDiv}>
+        <div onClick={wishListDiv} className="d-flex">
           <i class="bi bi-heart"></i>
-          <span className="User-Info-R">{props.wishList.length}</span>
+          <div className="User-Info-R">{props.wishList.length}</div>
         </div>
         <div className="wishDivCon" id="wishListToggler">
           Wish list
@@ -50,16 +60,30 @@ export default function MainHeader(props) {
             {props.wishList.map((myWishList, index) => (
               <li key={index}>
                 {myWishList.name}
-                <button>
-                  <i class="bi bi-x-circle-fill"></i>
-                </button>
+                <a>
+                  <i class="bi bi-x-circle-fill text-danger ms-2"></i>
+                </a>
               </li>
             ))}
           </ul>
         </div>
-        <div>
+        <div onClick={CartItemsDiv} className="d-flex">
           <i class="bi bi-cart-check"></i>
-          <span className="User-Info-R">0</span>
+          <div className="User-Info-R">{props.cartItems.length}</div>
+        </div>
+        <div className="cartItemsDivCon" id="CartItemsToggler">
+          Cart Items
+          <ul>
+            {props.cartItems.map((cartItems, index) => (
+              <li key={index}>
+                ID={cartItems.id}
+                {cartItems.name}
+                <a>
+                  <i class="bi bi-x-circle-fill text-danger ms-2"></i>
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </div>

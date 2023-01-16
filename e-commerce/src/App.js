@@ -16,6 +16,7 @@ import { useState } from "react";
 function App() {
   const [show, setShow] = useState(false);
   const [wishList, setWishList] = useState([]);
+  const [cartItems, setCartItems] = useState([]);
   // const [wishListProduct, setWishListProduct] = useState([]);
   const [productList, setProductList] = useState(products);
 
@@ -80,7 +81,8 @@ function App() {
         setShow={setShow}
         wishList={wishList}
         setWishList={setWishList}
-        // closeElem={closeElement}
+        cartItems={cartItems}
+        setCartItems={setCartItems}
       />
     );
   });
@@ -118,7 +120,10 @@ function App() {
       </div>
 
       <div className="menu-container">
-        <MainHeader wishList={wishList} />
+        <MainHeader
+          wishList={wishList}
+          cartItems={cartItems}
+        />
         <MainMenu />
       </div>
       {/* <button className='btn btn-primary'>Test</button>

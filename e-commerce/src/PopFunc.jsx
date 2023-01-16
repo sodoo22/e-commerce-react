@@ -18,13 +18,15 @@ function PopFunc({
   handleModal,
   setWishList,
   wishList,
+  setCartItems,
+  cartItems,
 }) {
-  function handleUpVote(proId) {
-    // console.log("Clicked");
-    console.log(proId);
-    // showElem(proId);
-    // console.log(proId);
-  }
+  // function handleUpVote(proId) {
+  //   // console.log("Clicked");
+  //   console.log(proId);
+  //   // showElem(proId);
+  //   // console.log(proId);
+  // }
   //   console.log(id);
   const handleClose = (id) => {
     // console.log("closing");
@@ -41,19 +43,20 @@ function PopFunc({
 
 
   let productsPcs = wishList.length;
+  let cartItemsQty = cartItems.length;
 
   function handleWish(proId) {
     console.log("Pruduct ID = ", proId);
-    // setWishList([...wishList, { id: id, name: title }]);
+    setWishList([...wishList, { id: id, name: title }]);
     // setWishList(wishList + 1);
     // console.log(wishList[0].id);
 
-    if (wishList.length == 0) {
-      console.log('TEST');
-      // return wishList;
-      setWishList([...wishList, { id: id, name: title }]);
-      return wishList;
-    }
+    // if (wishList.length == 0) {
+    //   console.log('TEST');
+    //   // return wishList;
+    //   setWishList([...wishList, { id: id, name: title }]);
+    //   return wishList;
+    // }
     // wishList.map((el, index) => {
     //   console.log(el.id);
     //   if (el.id !== proId) {
@@ -77,6 +80,13 @@ function PopFunc({
     // return wishList;
   }
   console.log("Wish list Pcs = " + productsPcs)
+
+  function handleCartItems(proId) {
+    console.log("Pruduct ID = ", proId);
+    setCartItems([...cartItems, { id: id, name: title }]);
+    // return wishList;
+  }
+  console.log("Cart Items Pcs = " + cartItemsQty)
 
 
 
@@ -124,7 +134,10 @@ function PopFunc({
           />
         </div>
         <div>
-          <a onClick={handleShow}>
+          <a
+            // onClick={handleCartItems}
+            onClick={() => { handleCartItems(id) }}
+          >
             <img src={cardImage} className="cardImage" alt="logo" />
           </a>
         </div>
