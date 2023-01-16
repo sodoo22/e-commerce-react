@@ -20,9 +20,10 @@ export default function MainHeader(props) {
     }
   }
 
-  //   function removeWishList(id) {
-
-  //   }
+  function remomeFromCart(id, props) {
+    console.log("Cart Removed ID = " + id);
+    props.setCartItems(props.cartItems.filter((el) => el.id !== id))
+  }
   return (
     <div className="MainHeader">
       <div>
@@ -59,6 +60,7 @@ export default function MainHeader(props) {
           <ul>
             {props.wishList.map((myWishList, index) => (
               <li key={index}>
+                ID:{myWishList.id}
                 {myWishList.name}
                 <a>
                   <i class="bi bi-x-circle-fill text-danger ms-2"></i>
@@ -76,9 +78,9 @@ export default function MainHeader(props) {
           <ul>
             {props.cartItems.map((cartItems, index) => (
               <li key={index}>
-                ID={cartItems.id}
+                ID:{cartItems.id}
                 {cartItems.name}
-                <a>
+                <a onClick={() => remomeFromCart(cartItems.id, props)}>
                   <i class="bi bi-x-circle-fill text-danger ms-2"></i>
                 </a>
               </li>

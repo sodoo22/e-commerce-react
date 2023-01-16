@@ -272,7 +272,7 @@
 
 .wishDivCon {
   position: absolute;
-  text-align: center;
+  /* text-align: center; */
   color: #f27f09;
   padding: 10px;
   top: 130px;
@@ -280,7 +280,7 @@
   background-color: #ffffff;
   border-radius: 5px;
   z-index: 20;
-  width: 250px;
+  width: 270px;
   display: none;
 }
 
@@ -294,7 +294,7 @@
   background-color: #ffffff;
   border-radius: 5px;
   z-index: 20;
-  width: 300px;
+  width: 270px;
   display: none;
 }
 

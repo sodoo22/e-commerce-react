@@ -84,7 +84,6 @@ function PopFunc({
   function handleCartItems(proId) {
     console.log("Pruduct ID = ", proId);
     setCartItems([...cartItems, { id: id, name: title }]);
-    // return wishList;
   }
   console.log("Cart Items Pcs = " + cartItemsQty)
 

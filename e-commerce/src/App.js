@@ -123,6 +123,8 @@ function App() {
         <MainHeader
           wishList={wishList}
           cartItems={cartItems}
+
+          setCartItems={setCartItems}
         />
         <MainMenu />
       </div>
