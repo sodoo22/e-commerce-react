@@ -4,6 +4,9 @@ import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import PopFuncDetail from "./PopFuncDetail";
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 function PopFunc({
   id,
   productImageUrl,
@@ -13,14 +16,13 @@ function PopFunc({
   votes,
   setShow,
   show,
-  // showElem,
-  // closeElem,
   handleModal,
   setWishList,
   wishList,
   setCartItems,
   cartItems,
 }) {
+  const notify = () => toast("Амжилттай хадгалагдлаа.!");
   // function handleUpVote(proId) {
   //   // console.log("Clicked");
   //   console.log(proId);
@@ -41,54 +43,33 @@ function PopFunc({
     handleModal(id, true);
   };
 
-
   let productsPcs = wishList.length;
   let cartItemsQty = cartItems.length;
-
+  const [heart, setHeart] = useState(false);
   function handleWish(proId) {
+    setHeart(!heart);
     console.log("Pruduct ID = ", proId);
-    setWishList([...wishList, { id: id, name: title }]);
-    // setWishList(wishList + 1);
-    // console.log(wishList[0].id);
 
-    // if (wishList.length == 0) {
-    //   console.log('TEST');
-    //   // return wishList;
-    //   setWishList([...wishList, { id: id, name: title }]);
-    //   return wishList;
-    // }
-    // wishList.map((el, index) => {
-    //   console.log(el.id);
-    //   if (el.id !== proId) {
-    //     setWishList([...wishList, { id: id, name: title }]);
-    //     console.log(wishList);
-    //     console.log('Ene baraa bn');
-    //     wishList.splice(index, 1);
-    //     console.log(wishList);
-    //     // return wishList;
-    //   }
-    //   if (el.id == proId) {
-    //     // setWishList([...wishList, { id: id, name: title }]);
-    //     console.log(wishList);
-    //     console.log('Ene baraa bn');
-    //     wishList.splice(index, 1);
-    //     console.log(wishList);
-    //     return wishList;
-    //   }
-
-    // })
-    // return wishList;
+    if (!heart) {
+      console.log("TEST");
+      setWishList([...wishList, { id: id, name: title }]);
+      // return wishList;
+    }
+    if (heart) {
+      console.log("ustah");
+      setWishList(wishList.filter((e) => e.id !== proId));
+    }
   }
-  console.log("Wish list Pcs = " + productsPcs)
+
+  console.log("Wish list Pcs = " + productsPcs);
 
   function handleCartItems(proId) {
+    notify();
+
     console.log("Pruduct ID = ", proId);
     setCartItems([...cartItems, { id: id, name: title }]);
   }
-  console.log("Cart Items Pcs = " + cartItemsQty)
-
-
-
+  console.log("Cart Items Pcs = " + cartItemsQty);
 
   const [rating, setRating] = useState(0);
 
@@ -112,7 +93,11 @@ function PopFunc({
             handleWish(id);
           }}
         >
-          <i class="bi bi-heart"></i>
+          {heart ? (
+            <i class="bi bi-heart-fill"></i>
+          ) : (
+            <i class="bi bi-heart"></i>
+          )}
         </a>
         <div className="popProductImg" onClick={handleShow}>
           <img
@@ -135,10 +120,13 @@ function PopFunc({
         <div>
           <a
             // onClick={handleCartItems}
-            onClick={() => { handleCartItems(id) }}
+            onClick={() => {
+              handleCartItems(id);
+            }}
           >
             <img src={cardImage} className="cardImage" alt="logo" />
           </a>
+          <ToastContainer position="top-center" />
         </div>
       </button>
 

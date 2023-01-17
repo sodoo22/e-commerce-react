@@ -19,6 +19,7 @@ function App() {
   const [cartItems, setCartItems] = useState([]);
   // const [wishListProduct, setWishListProduct] = useState([]);
   const [productList, setProductList] = useState(products);
+  const [heart, setHeart] = useState(false);
 
   const responsiveSlide1 = {
     0: { items: 1 },
@@ -122,14 +123,42 @@ function App() {
       <div className="menu-container">
         <MainHeader
           wishList={wishList}
+          setWishList={setWishList}
           cartItems={cartItems}
-
           setCartItems={setCartItems}
         />
         <MainMenu />
       </div>
       {/* <button className='btn btn-primary'>Test</button>
       <Button variant="danger">Test</Button> */}
+
+      <div className="d-flex justify-content-between align-items-center px-5">
+        <div>
+          <h2>Popular Products</h2>
+        </div>
+        <div>
+          <button className="btn btn-outline-secondary rounded-4  px-4 py-2 ms-3">
+            Cameras
+          </button>
+          <button className="btn btn-outline-secondary rounded-4  px-4 py-2 ms-3">
+            Laptops
+          </button>
+          <button className="btn btn-outline-secondary rounded-4  px-4 py-2 ms-3">
+            Tablets
+          </button>
+          <button className="btn btn-outline-secondary rounded-4  px-4 py-2 ms-3">
+            Mouse
+          </button>
+        </div>
+      </div>
+      <AliceCarousel
+        autoPlay
+        autoPlayInterval="3000"
+        disableButtonsControls="true"
+      >
+        <div className="popProductContainer">{productsList}</div>
+        {/* <div className="popProductContainer">{productsList}</div> */}
+      </AliceCarousel>
 
       <div className="container-banner">
         <AliceCarousel
@@ -164,34 +193,6 @@ function App() {
           {sliderProduct}
         </AliceCarousel>
       </div> */}
-
-      <div className="d-flex justify-content-between align-items-center px-5">
-        <div>
-          <h2>Popular Products</h2>
-        </div>
-        <div>
-          <button className="btn btn-outline-secondary rounded-4  px-4 py-2 ms-3">
-            Cameras
-          </button>
-          <button className="btn btn-outline-secondary rounded-4  px-4 py-2 ms-3">
-            Laptops
-          </button>
-          <button className="btn btn-outline-secondary rounded-4  px-4 py-2 ms-3">
-            Tablets
-          </button>
-          <button className="btn btn-outline-secondary rounded-4  px-4 py-2 ms-3">
-            Mouse
-          </button>
-        </div>
-      </div>
-      <AliceCarousel
-        autoPlay
-        autoPlayInterval="3000"
-        disableButtonsControls="true"
-      >
-        <div className="popProductContainer">{productsList}</div>
-        {/* <div className="popProductContainer">{productsList}</div> */}
-      </AliceCarousel>
 
       <div className="container banner d-flex justify-content-end">
         <div className="banner-title col-6">
