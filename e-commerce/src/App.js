@@ -84,6 +84,8 @@ function App() {
         setWishList={setWishList}
         cartItems={cartItems}
         setCartItems={setCartItems}
+        heart={setHeart}
+        setHeart={setHeart}
       />
     );
   });
@@ -126,6 +128,8 @@ function App() {
           setWishList={setWishList}
           cartItems={cartItems}
           setCartItems={setCartItems}
+          heart={setHeart}
+          setHeart={setHeart}
         />
         <MainMenu />
       </div>

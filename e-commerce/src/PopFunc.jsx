@@ -21,6 +21,8 @@ function PopFunc({
   wishList,
   setCartItems,
   cartItems,
+  heart,
+  setHeart,
 }) {
   const notify = () => toast("Амжилттай хадгалагдлаа.!");
   // function handleUpVote(proId) {
@@ -45,7 +47,7 @@ function PopFunc({
 
   let productsPcs = wishList.length;
   let cartItemsQty = cartItems.length;
-  const [heart, setHeart] = useState(false);
+  // const [heart, setHeart] = useState(false);
   function handleWish(proId) {
     setHeart(!heart);
     console.log("Pruduct ID = ", proId);
