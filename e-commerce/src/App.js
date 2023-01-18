@@ -12,6 +12,8 @@ import slideProduct from "./data/slideProduct";
 import slideProduct1 from "./data/slideProduct1";
 import ProductSlide1 from "./ProductSlide1";
 import { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   const [show, setShow] = useState(false);
@@ -223,6 +225,7 @@ function App() {
         </AliceCarousel>
       </div>
 
+      <ToastContainer position="bottom-right" />
       {/* <Button variant="primary" onClick={handleShow}>
         Launch demo modal
       </Button> */}
