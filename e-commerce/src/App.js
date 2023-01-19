@@ -226,9 +226,6 @@ function App() {
       </div>
 
       <ToastContainer position="bottom-right" />
-      {/* <Button variant="primary" onClick={handleShow}>
-        Launch demo modal
-      </Button> */}
     </div>
   );
 }
