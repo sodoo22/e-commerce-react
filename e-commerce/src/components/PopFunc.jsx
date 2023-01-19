@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import { Rating } from "react-simple-star-rating";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
-import PopFuncDetail from "./PopFuncDetail";
+import PopFuncDetail from "../PopFuncDetail";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Link } from "react-router-dom";
 
 function PopFunc({
   id,
@@ -112,7 +113,13 @@ function PopFunc({
           />
         </div>
         <div className="textbox">
-          <p className="bluetext">{title}</p>
+          <Link
+            to={`/detail/${id}`}
+            state={{ title: title, price: price, url: productImageUrl }}
+          >
+            <p className="bluetext">{title}</p>
+          </Link>
+
           <p className="price">${price}</p>
           <Rating
             onClick={handleRating}

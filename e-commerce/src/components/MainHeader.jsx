@@ -8,7 +8,7 @@ export default function MainHeader(props) {
       wishDiv.style = "display:none";
     }
   }
-  console.log(props.wishList);
+  // console.log(props.wishList);
 
   function CartItemsDiv() {
     console.log("wishlist clicked");
