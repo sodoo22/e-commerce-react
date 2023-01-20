@@ -1,6 +1,6 @@
 export default function CostumerRev() {
     return (
-        <div>
+        <div className="p-5">
             <div className="d-flex justify-content-center gap-4 pt-4">
                 <button className="btn btn-outline-secondary rounded-4 px-5 py-3">Description</button>
                 <button className="btn btn-secondary rounded-4 px-5 py-3 text-white">Reviews</button>
