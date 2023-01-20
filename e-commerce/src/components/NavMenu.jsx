@@ -4,7 +4,7 @@ import { Navbar, Nav, NavDropdown, NavLink } from 'react-bootstrap'
 import menus from '../data/menus'
 
 
-export default function MainMenu() {
+export default function NavMenu() {
 
     const subMenus = menus.map(subMenu => {
         return (
@@ -20,8 +20,8 @@ export default function MainMenu() {
     return (
         <div>
 
-            <Navbar bg="light" class="d-flex justify-content-around align-items-center">
-                <NavDropdown className="bg-warning text-white p-3" title="Browser categories" id="nav-dropdown">
+            <Navbar bg="light" className="d-flex justify-content-between align-items-center">
+                <NavDropdown className="bg-warning text-white p-4" title="Browser categories" id="nav-dropdown">
                     <NavDropdown.Item eventKey="4.1">Action</NavDropdown.Item>
                     <NavDropdown.Item eventKey="4.2">Another action</NavDropdown.Item>
                     <NavDropdown.Item eventKey="4.3">Something else here</NavDropdown.Item>

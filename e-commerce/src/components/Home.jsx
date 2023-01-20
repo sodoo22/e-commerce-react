@@ -113,7 +113,7 @@ export default function Home({
   });
 
   return (
-    <div className="App">
+    <div>
       {/* <button className='btn btn-primary'>Test</button>
         <Button variant="danger">Test</Button> */}
 

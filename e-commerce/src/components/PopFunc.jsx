@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import { Rating } from "react-simple-star-rating";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
-import PopFuncDetail from "../PopFuncDetail";
-
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Link } from "react-router-dom";
@@ -67,7 +65,7 @@ function PopFunc({
     }
   }
 
-  console.log("Wish list Pcs = " + productsPcs);
+  // console.log("Wish list Pcs = " + productsPcs);
 
   function handleCartItems(proId) {
     notify();
@@ -75,7 +73,7 @@ function PopFunc({
     console.log("Pruduct ID = ", proId);
     setCartItems([...cartItems, { id: id, name: title }]);
   }
-  console.log("Cart Items Pcs = " + cartItemsQty);
+  // console.log("Cart Items Pcs = " + cartItemsQty);
 
   const [rating, setRating] = useState(0);
 
@@ -115,7 +113,7 @@ function PopFunc({
         <div className="textbox">
           <Link
             to={`/detail/${id}`}
-            state={{ title: title, price: price, url: productImageUrl }}
+            state={{ title: title, price: price, url: productImageUrl, votes: votes, }}
           >
             <p className="bluetext">{title}</p>
           </Link>
@@ -169,7 +167,7 @@ function PopFunc({
               initialValue={votes}
             />
           </div>
-          <PopFuncDetail />
+
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>

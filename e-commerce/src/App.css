@@ -84,7 +84,7 @@
 }
 
 .bi {
-  color: #a8a8a8;
+  color: rgb(251, 54, 117);
   font-size: 20px;
   margin-right: 4px;
 }
@@ -98,7 +98,7 @@
 }
 
 .Menus {
-  margin-left: 15px;
+  margin-left: 1px;
   font-size: 14px;
   font-weight: 500;
 }
@@ -121,6 +121,7 @@
 }
 
 .Header-Info .bi {
+  color: #a8a8a8;
   font-size: 18px;
   margin-right: 15px;
 }
@@ -302,4 +303,149 @@
   color: #a8a8a8;
   font-size: 16px;
   margin-right: 5px;
+}
+
+
+
+
+
+
+/* ----------  Detail Page ----------- */
+
+.deCol-L {
+  border: 1px solid grey;
+  border-radius: 20px;
+  width: 100%;
+  margin-left: 50px;
+}
+
+.deCol-L img {
+  width: 100%;
+}
+
+.deCol-R {
+  margin-left: 50px;
+  width: 100%;
+  margin-right: 50px;
+}
+
+.deCol-R .bi {
+  color: grey;
+}
+
+.deName {
+  font-size: 30px;
+  font-weight: 500;
+  color: #003F62;
+  /* margin-bottom: 30px; */
+}
+
+.dePrice {
+  font-size: 30px;
+  font-weight: 600;
+  color: #4A4A4A;
+}
+
+.deIsStock,
+.deIsStock .bi {
+  color: green;
+}
+
+
+
+.deText {
+  font-size: 18px;
+  font-weight: 500;
+  color: #232323;
+  ;
+}
+
+
+/* ----------  Costumer reviews comp ----------- */
+
+.cosRevDiv {
+  width: 100%;
+  border: 1px solid grey;
+  border-radius: 10px;
+  padding: 50px;
+  width: 100%;
+  margin: 50px;
+}
+
+.cosRevDiv a {
+  color: white;
+  background-color: #003F62;
+  padding: 10px 20px;
+}
+
+
+/* ----------  Footer comp ----------- */
+
+.footerConDiv {
+  background-color: #E2F4FF;
+  padding: 50px;
+  /* color: #1B5A7D; */
+}
+
+.footSubs {
+  background-color: white;
+  border-radius: 20px;
+}
+
+.footSubs h1 {
+  font-size: 30px;
+  font-weight: 700;
+  color: #1B5A7D;
+}
+
+.footSubs input {
+  /* position: relative; */
+  width: 388px;
+  background-color: #f27f09;
+  border: none;
+  border-radius: 20px;
+  padding: 20px;
+  color: white;
+}
+
+
+.sendBtn {
+  position: absolute;
+  font-size: 20px;
+  cursor: pointer;
+  color: white;
+  padding: 10px;
+  background-color: #f27f09;
+  left: 950px;
+  z-index: 99;
+}
+
+.footSubs input::placeholder {
+  color: white;
+}
+
+.footSubs .bi {
+  font-size: 40px;
+  color: #f27f09;
+  margin-right: 20px;
+}
+
+.footSubs p {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.footerList h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1B5A7D;
+}
+
+.footerList a {
+  text-decoration: none;
+  font-size: 19px;
+  font-weight: 400;
+  color: #1B5A7D;
+
 }
