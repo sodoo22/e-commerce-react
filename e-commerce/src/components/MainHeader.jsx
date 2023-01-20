@@ -8,7 +8,7 @@ export default function MainHeader(props) {
       wishDiv.style = "display:none";
     }
   }
-  // console.log(props.wishList);
+  console.log(props.wishList);
 
   function CartItemsDiv() {
     console.log("wishlist clicked");
@@ -61,36 +61,39 @@ export default function MainHeader(props) {
           <div className="User-Info-R">{props.wishList.length}</div>
         </div>
         <div className="wishDivCon" id="wishListToggler">
-          Wish list
-          <ul>
+          <p>Wish list</p>
+          <div>
             {props.wishList.map((myWishList, index) => (
-              <li key={index}>
-                ID:{myWishList.id}
+              <div key={index} className="wishlist-product">
+                <div><img src={myWishList.url} alt="" /></div>
+
+                {/* {myWishList.id} */}
                 {myWishList.name}
                 <a onClick={() => removeWishList(myWishList.id)}>
                   <i class="bi bi-x-circle-fill text-danger ms-2"></i>
                 </a>
-              </li>
+              </div>
             ))}
-          </ul>
+          </div>
         </div>
         <div onClick={CartItemsDiv} className="d-flex">
           <i class="bi bi-cart-check"></i>
           <div className="User-Info-R">{props.cartItems.length}</div>
         </div>
         <div className="cartItemsDivCon" id="CartItemsToggler">
-          Cart Items
-          <ul>
+          <p>Cart Items</p>
+          <div>
             {props.cartItems.map((cartItems, index) => (
-              <li key={index}>
-                ID:{cartItems.id}
+              <div key={index} className="cartadd-product">
+                <img src={cartItems.url} alt="" />
+                {/* ID:{cartItems.id} */}
                 {cartItems.name}
                 <a onClick={() => remomeFromCart(cartItems.id)}>
-                  <i class="bi bi-x-circle-fill text-danger ms-2"></i>
+                  <i class="bi bi-x-circle-fill text-danger"></i>
                 </a>
-              </li>
+              </div>
             ))}
-          </ul>
+          </div>
         </div>
       </div>
     </div>

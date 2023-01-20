@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 
 function PopFunc({
   id,
+  url,
   productImageUrl,
   price,
   title,
@@ -56,7 +57,7 @@ function PopFunc({
 
     if (!heart) {
       console.log("TEST");
-      setWishList([...wishList, { id: id, name: title }]);
+      setWishList([...wishList, { id: id, name: title, url: url }]);
       // return wishList;
     }
     if (heart) {
@@ -71,7 +72,7 @@ function PopFunc({
     notify();
 
     console.log("Pruduct ID = ", proId);
-    setCartItems([...cartItems, { id: id, name: title }]);
+    setCartItems([...cartItems, { id: id, name: title, url: url }]);
   }
   // console.log("Cart Items Pcs = " + cartItemsQty);
 

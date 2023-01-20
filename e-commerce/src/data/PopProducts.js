@@ -6,7 +6,7 @@ const products = [
   {
     id: 1,
     title: "Camera",
-    price: 11.7,
+    price: 299,
     description: "On-demand sand castle construction expertise.",
     url: "#",
     votes: generateVoteCount(),
@@ -17,7 +17,7 @@ const products = [
   {
     id: 2,
     title: "Wireless Headphones",
-    price: 11.7,
+    price: 110,
     description: "Earn points when your favorite politicians pass legislation.",
     url: "#",
     votes: generateVoteCount(),
@@ -28,7 +28,7 @@ const products = [
   {
     id: 3,
     title: "XBOX Game Controller",
-    price: 11.7,
+    price: 120,
     description: "We already have your measurements and shipping address.",
     url: "#",
     votes: generateVoteCount(),
@@ -39,7 +39,7 @@ const products = [
   {
     id: 4,
     title: "HP Laptop",
-    price: 11.7,
+    price: 299,
     description: "High-minded or absent-minded? You decide.",
     url: "#",
     votes: generateVoteCount(),
@@ -50,7 +50,7 @@ const products = [
   {
     id: 5,
     title: "HP Laptop",
-    price: 11.7,
+    price: 299,
     description: "High-minded or absent-minded? You decide.",
     url: "#",
     votes: generateVoteCount(),
@@ -61,7 +61,7 @@ const products = [
   {
     id: 6,
     title: "Camera",
-    price: 11.7,
+    price: 500,
     description: "On-demand sand castle construction expertise.",
     url: "#",
     votes: generateVoteCount(),
@@ -72,7 +72,7 @@ const products = [
   {
     id: 7,
     title: "Wireless Headphones",
-    price: 11.7,
+    price: 130,
     description: "Earn points when your favorite politicians pass legislation.",
     url: "#",
     votes: generateVoteCount(),
@@ -83,7 +83,7 @@ const products = [
   {
     id: 8,
     title: "XBOX Game Controller",
-    price: 11.7,
+    price: 120,
     description: "We already have your measurements and shipping address.",
     url: "#",
     votes: generateVoteCount(),

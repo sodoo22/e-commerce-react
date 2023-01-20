@@ -41,7 +41,7 @@
 }
 
 .popProductImg {
-  margin-top: 10px;
+  margin-top: 5px;
   text-align: center;
 }
 
@@ -68,11 +68,20 @@
 
 .textbox {
   margin-left: 20px;
+
+}
+
+.textbox a {
+  text-decoration: none;
+}
+
+.textbox a:hover {
+  text-decoration: underline
 }
 
 .textbox h2 {
   color: rgb(42, 42, 42);
-  margin-top: 0;
+  margin-top: 10px;
   margin-bottom: 0;
 }
 
@@ -141,7 +150,6 @@
 
 .MainHeader img {
   width: 130px;
-  margin-left: 50px;
 }
 
 .MainHeader .User-Info {
@@ -154,6 +162,7 @@
 
 .User-Info-R {
   /* padding: 5px; */
+  position: relative;
   text-align: center;
   width: 23px;
   height: 23px;
@@ -277,7 +286,7 @@
   color: #f27f09;
   padding: 10px;
   top: 130px;
-  right: 120px;
+  right: 600px;
   background-color: #ffffff;
   border-radius: 5px;
   z-index: 20;
@@ -291,7 +300,7 @@
   color: #1B5A7D;
   padding: 10px;
   top: 130px;
-  right: 10px;
+  right: 500px;
   background-color: #ffffff;
   border-radius: 5px;
   z-index: 20;
@@ -300,6 +309,7 @@
 }
 
 .User-Info .bi {
+  position: relative;
   color: #a8a8a8;
   font-size: 16px;
   margin-right: 5px;
@@ -448,4 +458,25 @@
   font-weight: 400;
   color: #1B5A7D;
 
+}
+
+
+
+
+
+
+
+.wishlist-product,
+.cartadd-product {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+}
+
+.wishlist-product img,
+.cartadd-product img {
+  width: 100px;
 }

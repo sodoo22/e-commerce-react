@@ -75,6 +75,7 @@ export default function Home({
     return (
       <PopFunc
         id={product.id}
+        url={product.productImageUrl}
         productImageUrl={product.productImageUrl}
         title={product.title}
         price={product.price}
