@@ -8,7 +8,7 @@ import Gallery from "./Gallery";
 export default function DetailPage() {
   const location = useLocation();
   const proData = location.state;
-  console.log(proData);
+  // console.log(proData);
 
   const [rating, setRating] = useState(0);
 
@@ -22,6 +22,13 @@ export default function DetailPage() {
   const onPointerLeave = () => console.log("Leave");
   const onPointerMove = (value, index) => console.log(value, index);
   //   console.log({ votes });
+
+  function handleCartItems(proId) {
+    // notify();
+
+    console.log("Pruduct ID = ", proId);
+    // setCartItems([...cartItems, { id: id, name: title, url: url }]);
+  }
 
   return (
     <div>
@@ -66,8 +73,20 @@ export default function DetailPage() {
           <div className="py-3">
             <span className="deText">Size : </span>
           </div>
-          <div>
+          <div className="d-flex ">
             <span className="deText">Quantity : </span>
+            <div className="deQty">
+              <a > - </a>
+              <span className="qty">{proData.cartItems.length}</span>
+              <a
+                onClick={() => {
+                  handleCartItems(proData.id);
+                  // console.log(proData.id);
+
+                }}
+              > + </a>
+
+            </div>
           </div>
           <div className="d-flex gap-4 pt-4">
             <button className="btn btn-warning rounded-5 px-5 py-3 text-white">

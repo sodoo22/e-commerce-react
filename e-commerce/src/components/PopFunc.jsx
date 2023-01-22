@@ -51,6 +51,7 @@ function PopFunc({
   let productsPcs = wishList.length;
   let cartItemsQty = cartItems.length;
   const [heart, setHeart] = useState(false);
+  const [cartAdIcon, setCartAdIcon] = useState(false)
   function handleWish(proId) {
     setHeart(!heart);
     console.log("Pruduct ID = ", proId);
@@ -70,9 +71,9 @@ function PopFunc({
 
   function handleCartItems(proId) {
     notify();
-
+    setCartAdIcon(true)
     console.log("Pruduct ID = ", proId);
-    setCartItems([...cartItems, { id: id, name: title, url: url }]);
+    setCartItems([...cartItems, { id: id, name: title, url: url, price: price }]);
   }
   // console.log("Cart Items Pcs = " + cartItemsQty);
 
@@ -113,8 +114,11 @@ function PopFunc({
         </div>
         <div className="textbox">
           <Link
+            // cartItems={cartItems}
+            // setCartItems={setCartItems}
+            // id={id}
             to={`/detail/${id}`}
-            state={{ title: title, price: price, url: productImageUrl, votes: votes, }}
+            state={{ cartItems: cartItems, id: id, title: title, price: price, url: productImageUrl, votes: votes, }}
           >
             <p className="bluetext">{title}</p>
           </Link>
@@ -128,14 +132,18 @@ function PopFunc({
             initialValue={votes}
           />
         </div>
-        <div>
+        <div className="text-end">
           <a
-            // onClick={handleCartItems}
             onClick={() => {
               handleCartItems(id);
             }}
           >
-            <img src={cardImage} className="cardImage" alt="logo" />
+            {/* <img src={cardImage} className="cardImage" alt="logo" /> */}
+            {cartAdIcon ? (
+              <i class="bi bi-cart-fill"></i>
+            ) : (
+              <i class="bi bi-cart"></i>
+            )}
           </a>
         </div>
       </button>

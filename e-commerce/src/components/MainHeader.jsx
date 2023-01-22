@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function MainHeader(props) {
   function wishListDiv() {
     console.log("wishlist clicked");
@@ -27,12 +29,20 @@ export default function MainHeader(props) {
 
   function removeWishList(id) {
     console.log("Cart Removed ID = " + id);
-    props.setWishList(props.wishList.filter((el) => el.id !== id));
+    // props.setWishList(props.wishList.filter((el) => el.id !== id));
+    console.log(props);
+    if (!props.heart) {
+      console.log("ustah");
+      console.log('heart value = ', props.heart);
+      // props.setHeart(!props.heart);
+
+      props.setWishList(props.wishList.filter((e) => e.id !== id));
+    }
   }
   return (
     <div className="MainHeader">
       <div>
-        <img src="../images/logo1.png" alt="" />
+        <Link to={'/'}>  <img src="../images/logo1.png" alt="" /></Link>
       </div>
       <div className="col-5">
         <div class="input-group my-1">
@@ -54,8 +64,9 @@ export default function MainHeader(props) {
       </div>
       <div className="User-Info">
         <div>
-          <i class="bi bi-person"></i> Sign in
+          <i class="bi bi-person"></i>
         </div>
+        <Link to={'/signup'}>Sign Up</Link>
         <div onClick={wishListDiv} className="d-flex">
           <i class="bi bi-heart"></i>
           <div className="User-Info-R">{props.wishList.length}</div>
@@ -70,7 +81,7 @@ export default function MainHeader(props) {
                 {/* {myWishList.id} */}
                 {myWishList.name}
                 <a onClick={() => removeWishList(myWishList.id)}>
-                  <i class="bi bi-x-circle-fill text-danger ms-2"></i>
+                  <i class="bi bi-x-circle text-danger ms-2"></i>
                 </a>
               </div>
             ))}
@@ -89,11 +100,14 @@ export default function MainHeader(props) {
                 {/* ID:{cartItems.id} */}
                 {cartItems.name}
                 <a onClick={() => remomeFromCart(cartItems.id)}>
-                  <i class="bi bi-x-circle-fill text-danger"></i>
+                  <i class="bi bi-x-circle text-danger"></i>
                 </a>
               </div>
             ))}
           </div>
+        </div>
+        <div>
+          <Link to={'/cart'}>Cart</Link>
         </div>
       </div>
     </div>

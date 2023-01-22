@@ -10,6 +10,8 @@ import { useState } from "react";
 import DetailPage from "./components/DetailPage";
 import HeaderContact from "./components/HeaderContact";
 import Footer from "./components/Footer";
+import Cart from "./components/Cart";
+import SignUp from "./components/SignUp";
 
 function App() {
   const [wishList, setWishList] = useState([]);
@@ -23,7 +25,8 @@ function App() {
         setWishList={setWishList}
         cartItems={cartItems}
         setCartItems={setCartItems}
-      // heart={setHeart}
+      // id={id}
+      // heart={heart}
       // setHeart={setHeart}
       />
       <NavMenu />
@@ -40,6 +43,11 @@ function App() {
           }
         ></Route>
         <Route path="/detail/:id" element={<DetailPage />}></Route>
+        <Route path="/cart" element={<Cart
+          cartItems={cartItems}
+          setCartItems={setCartItems}
+        />} />
+        <Route path="/signup" element={<SignUp />} />
       </Routes>
       <Footer />
     </div>

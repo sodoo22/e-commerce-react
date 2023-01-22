@@ -139,7 +139,14 @@
   margin-right: 30px;
 }
 
+.navMenu {
+  /* position: fixed; */
+  z-index: 99;
+}
+
 .MainHeader {
+  /* position: fixed; */
+  z-index: 99;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -155,7 +162,8 @@
 .MainHeader .User-Info {
   display: flex;
   justify-content: space-between;
-  width: 200px;
+  gap: 10px;
+  width: 250px;
   color: white;
   margin-right: 40px;
 }
@@ -276,10 +284,6 @@
   width: 25px;
 }
 
-.input-group {
-  /* max-width: 200px; */
-}
-
 .wishDivCon {
   position: absolute;
   /* text-align: center; */
@@ -367,9 +371,26 @@
   font-size: 18px;
   font-weight: 500;
   color: #232323;
-  ;
 }
 
+.deQty {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 20px;
+  background-color: #dddddd;
+  width: 100px;
+  border: 1px solid grey;
+}
+
+.deQty a {
+  text-decoration: none;
+  color: gray;
+  text-align: center;
+  border-right: 1px solid grey;
+  border-left: 1px solid grey;
+  width: 30px;
+  cursor: pointer;
+}
 
 /* ----------  Costumer reviews comp ----------- */
 
@@ -478,4 +499,53 @@
 .wishlist-product img,
 .cartadd-product img {
   width: 100px;
+}
+
+
+
+/* -------------------- Cart page ----------------- */
+
+.cartDivHead {
+  background-color: #E2F4FF;
+
+}
+
+
+.cartDiv input,
+.cartDiv select {
+  /* position: relative; */
+  width: 100%;
+  border: 1px solid grey;
+  border-radius: 20px;
+  padding: 10px 15px;
+}
+
+.cartDiv input::placeholder {
+  color: gray;
+}
+
+.cartDiv select option {
+  padding: 10px;
+}
+
+
+/* --------------------  Sign up ----------------- */
+
+
+.signupDiv input {
+  /* position: relative; */
+  width: 100%;
+  border: 1px solid grey;
+  border-radius: 10px;
+  padding: 10px 15px;
+  margin-bottom: 20px;
+}
+
+.signupDiv input::placeholder {
+  color: gray;
+}
+
+.signupDiv button {
+  width: 100%;
+  margin-bottom: 30px;
 }

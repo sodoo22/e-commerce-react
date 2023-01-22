@@ -18,7 +18,7 @@ export default function NavMenu() {
 
 
     return (
-        <div>
+        <div className="navMenu">
 
             <Navbar bg="light" className="d-flex justify-content-between align-items-center">
                 <NavDropdown className="bg-warning text-white p-4" title="Browser categories" id="nav-dropdown">
