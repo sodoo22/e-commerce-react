@@ -29,15 +29,8 @@ export default function MainHeader(props) {
 
   function removeWishList(id) {
     console.log("Cart Removed ID = " + id);
-    // props.setWishList(props.wishList.filter((el) => el.id !== id));
-    console.log(props);
-    if (!props.heart) {
-      console.log("ustah");
-      console.log('heart value = ', props.heart);
-      // props.setHeart(!props.heart);
+    props.setWishList(props.wishList.filter((el) => el.id !== id));
 
-      props.setWishList(props.wishList.filter((e) => e.id !== id));
-    }
   }
   return (
     <div className="MainHeader">

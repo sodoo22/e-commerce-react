@@ -52,22 +52,38 @@ function PopFunc({
   let cartItemsQty = cartItems.length;
   const [heart, setHeart] = useState(false);
   const [cartAdIcon, setCartAdIcon] = useState(false)
+
   function handleWish(proId) {
-    setHeart(!heart);
     console.log("Pruduct ID = ", proId);
 
-    if (!heart) {
-      console.log("TEST");
-      setWishList([...wishList, { id: id, name: title, url: url }]);
-      // return wishList;
+    let wishListQty = wishList.length;
+    let isAdded = false;
+
+    if (wishListQty > 0) {
+      wishList.map(el => {
+        if (el.id == proId) {
+          isAdded = true;
+        }
+      });
+      if (isAdded) {
+        setWishList(wishList.filter(el => el.id !== proId));
+      }
     }
-    if (heart) {
-      console.log("ustah");
-      setWishList(wishList.filter((e) => e.id !== proId));
+    if (isAdded == false) {
+      setWishList([...wishList, { id: id, name: title, url: url }]);
     }
   }
+  console.log("Wish list Pcs = " + productsPcs);
 
-  // console.log("Wish list Pcs = " + productsPcs);
+  function inWishList(id) {
+    let result = false;
+    wishList.map(el => {
+      if (el.id == id) {
+        result = true;
+      }
+    })
+    return result;
+  }
 
   function handleCartItems(proId) {
     notify();
@@ -99,7 +115,7 @@ function PopFunc({
             handleWish(id);
           }}
         >
-          {heart ? (
+          {inWishList(id) ? (
             <i class="bi bi-heart-fill"></i>
           ) : (
             <i class="bi bi-heart"></i>
