@@ -6,6 +6,12 @@ export default function Cart(props) {
         props.setCartItems(props.cartItems.filter((el) => el.id !== id));
     }
 
+
+    function findQty(cartId) {
+        let sum = props.cartItems.filter(el => el.id === cartId).length
+        return sum;
+    }
+
     return (
         <div className="px-5">
             <p className=" my-4">Home - Cart - </p>
@@ -18,31 +24,38 @@ export default function Cart(props) {
                         <p>Subtotal</p>
                     </div>
                     <div>
-                        {props.cartItems.map((cartItems, index) => (
-                            <div key={index} className="cartadd-product">
-                                <img src={cartItems.url} alt="" />
-                                {cartItems.name} ` `
-                                {/* ID:{cartItems.id} */}
-                                $ {cartItems.price}
-                                <div className="deQty">
-                                    <a > - </a>
-                                    <span className="qty">0</span>
-                                    <a
-                                        onClick={() => {
-                                            // handleCartItems(proData.id);
-                                            // console.log(proData.id);
+                        {props.cartItems.map((cartItem, index) => {
+                            console.log(props.cartItems.length);
+                            if (findQty(cartItem.id) >= 1) {
+                                return (
+                                    <div key={index} className="cartadd-product">
+                                        <img src={cartItem.url} alt="" />
+                                        {cartItem.name} ` `
+                                        {/* ID:{cartItems.id} */}
+                                        $ {cartItem.price}
+                                        <div className="deQty">
+                                            <a > - </a>
+                                            <span className="qty">{findQty(cartItem.id)}</span>
+                                            <a
+                                                onClick={() => {
+                                                    // handleCartItems(proData.id);
+                                                    // console.log(proData.id);
 
-                                        }}
-                                    > + </a>
+                                                }}
+                                            > + </a>
 
-                                </div>
-                                <a onClick={() =>
-                                    remomeFromCart(cartItems.id)
-                                }>
-                                    <i class="bi bi-x-circle text-black"></i>
-                                </a>
-                            </div>
-                        ))}
+                                        </div>
+                                        <a onClick={() =>
+                                            remomeFromCart(cartItem.id)
+                                        }>
+                                            <i class="bi bi-x-circle text-black"></i>
+                                        </a>
+                                    </div>
+                                )
+                            } else {
+                                return ('')
+                            }
+                        })}
                     </div>
                     <div className="d-flex justify-content-between py-4">
                         <button className="btn btn-warning rounded-5 px-4 py-3 text-white">

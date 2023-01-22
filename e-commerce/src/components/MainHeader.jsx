@@ -28,10 +28,22 @@ export default function MainHeader(props) {
   }
 
   function removeWishList(id) {
-    console.log("Cart Removed ID = " + id);
+    console.log("Wish Removed ID = " + id);
     props.setWishList(props.wishList.filter((el) => el.id !== id));
-
   }
+
+  function findQty(cartId) {
+    let sum = props.cartItems.filter(el => {
+      if (el.id === cartId) {
+        return true;
+      } else {
+        return false;
+      }
+    }).length
+    return sum;
+  }
+  // console.log(findQty(1));
+
   return (
     <div className="MainHeader">
       <div>
@@ -92,6 +104,7 @@ export default function MainHeader(props) {
                 <img src={cartItems.url} alt="" />
                 {/* ID:{cartItems.id} */}
                 {cartItems.name}
+                <p>{findQty(cartItems.id)}</p>
                 <a onClick={() => remomeFromCart(cartItems.id)}>
                   <i class="bi bi-x-circle text-danger"></i>
                 </a>

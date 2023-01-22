@@ -84,14 +84,19 @@ function PopFunc({
     })
     return result;
   }
-
+  // let sum = 0;
   function handleCartItems(proId) {
+    // sum += 1;
     notify();
     setCartAdIcon(true)
     console.log("Pruduct ID = ", proId);
     setCartItems([...cartItems, { id: id, name: title, url: url, price: price }]);
   }
-  // console.log("Cart Items Pcs = " + cartItemsQty);
+  console.log("Cart Items Pcs = " + cartItemsQty);
+
+
+
+
 
   const [rating, setRating] = useState(0);
 
