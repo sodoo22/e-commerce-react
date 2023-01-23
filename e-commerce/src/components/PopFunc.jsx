@@ -21,6 +21,7 @@ function PopFunc({
   wishList,
   setCartItems,
   cartItems,
+  qty,
   // heart,
   // setHeart,
 }) {
@@ -51,7 +52,7 @@ function PopFunc({
   let productsPcs = wishList.length;
   let cartItemsQty = cartItems.length;
   const [heart, setHeart] = useState(false);
-  const [cartAdIcon, setCartAdIcon] = useState(false)
+  const [cartAdIcon, setCartAdIcon] = useState(false);
 
   function handleWish(proId) {
     console.log("Pruduct ID = ", proId);
@@ -60,13 +61,13 @@ function PopFunc({
     let isAdded = false;
 
     if (wishListQty > 0) {
-      wishList.map(el => {
+      wishList.map((el) => {
         if (el.id == proId) {
           isAdded = true;
         }
       });
       if (isAdded) {
-        setWishList(wishList.filter(el => el.id !== proId));
+        setWishList(wishList.filter((el) => el.id !== proId));
       }
     }
     if (isAdded == false) {
@@ -77,26 +78,27 @@ function PopFunc({
 
   function inWishList(id) {
     let result = false;
-    wishList.map(el => {
+    wishList.map((el) => {
       if (el.id == id) {
         result = true;
       }
-    })
+    });
     return result;
   }
   // let sum = 0;
   function handleCartItems(proId) {
     // sum += 1;
     notify();
-    setCartAdIcon(true)
+    setCartAdIcon(true);
     console.log("Pruduct ID = ", proId);
-    setCartItems([...cartItems, { id: id, name: title, url: url, price: price }]);
+    const filteredItem = cartItems.filter((c) => c.id === proId);
+
+    setCartItems([
+      ...cartItems,
+      { id: id, name: title, url: url, price: price, qty: 1 },
+    ]);
   }
   console.log("Cart Items Pcs = " + cartItemsQty);
-
-
-
-
 
   const [rating, setRating] = useState(0);
 
@@ -139,7 +141,14 @@ function PopFunc({
             // setCartItems={setCartItems}
             // id={id}
             to={`/detail/${id}`}
-            state={{ cartItems: cartItems, id: id, title: title, price: price, url: productImageUrl, votes: votes, }}
+            state={{
+              cartItems: cartItems,
+              id: id,
+              title: title,
+              price: price,
+              url: productImageUrl,
+              votes: votes,
+            }}
           >
             <p className="bluetext">{title}</p>
           </Link>
@@ -197,7 +206,6 @@ function PopFunc({
               initialValue={votes}
             />
           </div>
-
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
