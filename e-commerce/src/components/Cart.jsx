@@ -12,6 +12,33 @@ export default function Cart(props) {
         return sum;
     }
 
+    function handleCartItems(proId) {
+        // notify();
+        // props.setCartAdIcon(true);
+        console.log("Pruduct ID = ", proId);
+        // const filteredItem = cartItems.filter((c) => c.id === proId);
+
+        props.setCartItems([
+            ...props.cartItems,
+            { id: props.id, name: props.title, url: props.url, price: props.price, qty: 1 },
+        ]);
+    }
+
+
+
+    let result = []
+    props.cartItems.forEach(function (a) {
+        if (!this[a.id]) {
+            this[a.id] = { id: a.id, name: a.name, url: a.url, price: a.price, qty: 0 };
+            result.push(this[a.id]);
+        }
+        this[a.id].qty += a.qty;
+    }, Object.create(null));
+
+    console.log(result);
+
+
+
     return (
         <div className="px-5">
             <p className=" my-4">Home - Cart - </p>
@@ -24,37 +51,35 @@ export default function Cart(props) {
                         <p>Subtotal</p>
                     </div>
                     <div>
-                        {props.cartItems.map((cartItem, index) => {
-                            console.log(props.cartItems.length);
-                            if (findQty(cartItem.id) >= 1) {
-                                return (
-                                    <div key={index} className="cartadd-product">
-                                        <img src={cartItem.url} alt="" />
-                                        {cartItem.name} ` `
-                                        {/* ID:{cartItems.id} */}
-                                        $ {cartItem.price}
-                                        <div className="deQty">
-                                            <a > - </a>
-                                            <span className="qty">{findQty(cartItem.id)}</span>
-                                            <a
-                                                onClick={() => {
-                                                    // handleCartItems(proData.id);
-                                                    // console.log(proData.id);
+                        {result.map((cartItem, index) => {
+                            // console.log(reCartItems.length);
 
-                                                }}
-                                            > + </a>
+                            return (
+                                <div key={index} className="cartadd-product">
+                                    <img src={cartItem.url} alt="" />
+                                    {cartItem.name}
+                                    {/* ID:{cartItems.id} */}
+                                    $ {cartItem.price}
+                                    <div className="deQty">
+                                        <a > - </a>
+                                        <span className="qty">{cartItem.qty}</span>
+                                        <a
+                                            onClick={() => {
+                                                handleCartItems(props.id);
+                                                // console.log(proData.id);
 
-                                        </div>
-                                        <a onClick={() =>
-                                            remomeFromCart(cartItem.id)
-                                        }>
-                                            <i class="bi bi-x-circle text-black"></i>
-                                        </a>
+                                            }}
+                                        > + </a>
+
                                     </div>
-                                )
-                            } else {
-                                return ('')
-                            }
+                                    $ {cartItem.price * cartItem.qty}
+                                    <a onClick={() =>
+                                        remomeFromCart(cartItem.id)
+                                    }>
+                                        <i class="bi bi-x-circle text-black"></i>
+                                    </a>
+                                </div>
+                            )
                         })}
                     </div>
                     <div className="d-flex justify-content-between py-4">
