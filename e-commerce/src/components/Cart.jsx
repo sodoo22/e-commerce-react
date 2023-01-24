@@ -25,17 +25,20 @@ export default function Cart(props) {
     }
 
 
-
     let result = []
-    props.cartItems.forEach(function (a) {
-        if (!this[a.id]) {
-            this[a.id] = { id: a.id, name: a.name, url: a.url, price: a.price, qty: 0 };
-            result.push(this[a.id]);
-        }
-        this[a.id].qty += a.qty;
-    }, Object.create(null));
+    function reArr(arr) {
 
-    console.log(result);
+        arr.forEach(function (a) {
+            if (!this[a.id]) {
+                this[a.id] = { id: a.id, name: a.name, url: a.url, price: a.price, qty: 0 };
+                result.push(this[a.id]);
+            }
+            this[a.id].qty += a.qty;
+        }, Object.create(null));
+        // return result;
+    }
+
+    console.log(reArr(props.cartItems));
 
 
 
@@ -67,6 +70,7 @@ export default function Cart(props) {
                                             onClick={() => {
                                                 handleCartItems(props.id);
                                                 // console.log(proData.id);
+
 
                                             }}
                                         > + </a>
