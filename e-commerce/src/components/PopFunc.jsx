@@ -85,9 +85,18 @@ function PopFunc({
     });
     return result;
   }
-  // let sum = 0;
+
+  function inCartListCheck(id) {
+    let result = false;
+    cartItems.map((el) => {
+      if (el.id == id) {
+        result = true;
+      }
+    });
+    return result;
+  }
+
   function handleCartItems(proId) {
-    // sum += 1;
     notify();
     setCartAdIcon(true);
     console.log("Pruduct ID = ", proId);
@@ -169,8 +178,8 @@ function PopFunc({
             }}
           >
             {/* <img src={cardImage} className="cardImage" alt="logo" /> */}
-            {cartAdIcon ? (
-              <i class="bi bi-cart-fill"></i>
+            {inCartListCheck(id) ? (
+              <i class="bi bi-cart-plus-fill"></i>
             ) : (
               <i class="bi bi-cart"></i>
             )}
