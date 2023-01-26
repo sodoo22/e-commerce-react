@@ -30,7 +30,7 @@
 }
 
 .contaner {
-  position: relative;
+  /* position: relative; */
   text-align: left;
   margin-top: 30px;
   width: 300px;
@@ -438,6 +438,9 @@
   color: white;
 }
 
+.footerInputDiv {
+  position: relative;
+}
 
 .sendBtn {
   position: absolute;
@@ -446,7 +449,8 @@
   color: white;
   padding: 10px;
   background-color: #f27f09;
-  left: 950px;
+  left: 330px;
+  top: 8px;
   z-index: 99;
 }
 

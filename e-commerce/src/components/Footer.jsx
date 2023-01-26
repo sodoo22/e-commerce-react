@@ -10,13 +10,14 @@ export default function Footer() {
         <div>
           <h1>Subscribe newsletter</h1>
         </div>
-        <div>
+        <div className="footerInputDiv">
           <input type="email" placeholder="Email address" />
+          <a className="sendBtn">
+            {" "}
+            <i class="bi-send"></i>
+          </a>
         </div>
-        <a className="sendBtn">
-          {" "}
-          <i class="bi-send"></i>
-        </a>
+
         <div className="d-flex align-items-center ">
           <div>
             <i class="bi bi-headset"></i>
@@ -41,9 +42,9 @@ export default function Footer() {
             <i class="bi bi-whatsapp"></i>
           </div>
         </div>
-        <FooterList data={FindData} />
-        <FooterList data={GetData} />
-        <FooterList data={AboutData} />
+        <FooterList data={FindData} title={"Find product"} />
+        <FooterList data={GetData} title={"Get help"} />
+        <FooterList data={AboutData} title={"About us"} />
       </div>
     </footer>
   );

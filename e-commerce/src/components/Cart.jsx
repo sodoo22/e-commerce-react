@@ -21,12 +21,26 @@ export default function Cart(props) {
       ...props.cartItems,
       {
         id: filteredItem[0].id,
-        name: filteredItem[0].title,
+        name: filteredItem[0].name,
         url: filteredItem[0].url,
         price: filteredItem[0].price,
         qty: 1,
       },
     ]);
+  }
+
+  function remomeFromCart(proId) {
+    console.log("Cart Removed ID = " + proId);
+    const filteredItem = props.cartItems.filter((c) => c.id === proId);
+    const filteredItem11 = props.cartItems.filter((c) => c.id !== proId);
+    // props.setCartItems(props.cartItems.filter((el) => el.id !== proId));
+    filteredItem.shift()
+    console.log(filteredItem);
+    props.setCartItems(filteredItem.concat(filteredItem11))
+  }
+
+  function remomeFromCartList(proId) {
+    props.setCartItems(props.cartItems.filter((el) => el.id !== proId));
   }
 
   let result = [];
@@ -49,6 +63,15 @@ export default function Cart(props) {
 
   console.log(reArr(props.cartItems));
 
+  result = result.sort((a, b) => a.id - b.id)
+
+  console.log('result', result);
+
+  const total = result.reduce(
+    (prevValue, currentValue) => prevValue + currentValue.qty * currentValue.price,
+    0
+  );
+
   return (
     <div className="px-5">
       <p className=" my-4">Home - Cart - </p>
@@ -66,11 +89,17 @@ export default function Cart(props) {
               console.log(cartItem);
               return (
                 <div key={index} className="cartadd-product">
-                  <img src={cartItem.url} alt="" />
-                  {cartItem.name}
-                  {/* ID:{cartItems.id} */}$ {cartItem.price}
+                  <div className="col-1">
+                    <img src={cartItem.url} alt="" />
+                  </div>
+                  <div className="col-3">
+                    {cartItem.name}
+                  </div>
+                  <div className="col-1">
+                    $ {cartItem.price}
+                  </div>
                   <div className="deQty">
-                    <a> - </a>
+                    <a onClick={() => remomeFromCart(cartItem.id)}> - </a>
                     <span className="qty">{cartItem.qty}</span>
                     <a
                       onClick={() => {
@@ -82,10 +111,14 @@ export default function Cart(props) {
                       +{" "}
                     </a>
                   </div>
-                  $ {cartItem.price * cartItem.qty}
-                  <a onClick={() => remomeFromCart(cartItem.id)}>
-                    <i class="bi bi-x-circle text-black"></i>
-                  </a>
+                  <div className="col-1">
+                    $ {cartItem.price * cartItem.qty}
+                  </div>
+                  <div className="col-1">
+                    <a onClick={() => remomeFromCartList(cartItem.id)}>
+                      <i class="bi bi-x-circle text-black"></i>
+                    </a>
+                  </div>
                 </div>
               );
             })}
@@ -109,7 +142,7 @@ export default function Cart(props) {
           <div className="p-4">
             <div className="d-flex justify-content-between">
               <p>Subtotal</p>
-              <p>$ 100</p>
+              <p>$ {total}</p>
             </div>
             <hr />
             <div>
@@ -122,7 +155,7 @@ export default function Cart(props) {
             </select>
             <div className="d-flex justify-content-between py-4">
               <p>Total amount</p>
-              <p>$ 100</p>
+              <p>$ {total}</p>
             </div>
             <div className="text-center">
               <button className="btn btn-warning rounded-5 px-4 py-3 text-white">

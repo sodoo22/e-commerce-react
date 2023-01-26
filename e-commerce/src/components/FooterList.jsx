@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 export default function FooterList(props) {
   return (
     <div className="footerList">
-      <h3>Find product</h3>
+      <h3>{props.title}</h3>
       <ul>
         {props.data.map((data, index) => {
           return (
