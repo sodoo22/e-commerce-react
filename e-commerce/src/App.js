@@ -25,9 +25,9 @@ function App() {
         setWishList={setWishList}
         cartItems={cartItems}
         setCartItems={setCartItems}
-      // id={id}
-      // heart={heart}
-      // setHeart={setHeart}
+        // id={id}
+        // heart={heart}
+        // setHeart={setHeart}
       />
       <NavMenu />
       <Routes>
@@ -42,11 +42,14 @@ function App() {
             />
           }
         ></Route>
-        <Route path="/detail/:id" element={<DetailPage />}></Route>
-        <Route path="/cart" element={<Cart
-          cartItems={cartItems}
-          setCartItems={setCartItems}
-        />} />
+        <Route
+          path="/detail/:id"
+          element={<DetailPage wishList={wishList} setWishList={setWishList} />}
+        ></Route>
+        <Route
+          path="/cart"
+          element={<Cart cartItems={cartItems} setCartItems={setCartItems} />}
+        />
         <Route path="/signup" element={<SignUp />} />
       </Routes>
       <Footer />

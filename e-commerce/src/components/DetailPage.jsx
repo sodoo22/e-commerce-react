@@ -5,7 +5,7 @@ import CostumerRev from "./CostumerRev";
 import ImageGallery from "react-image-gallery";
 import Gallery from "./Gallery";
 
-export default function DetailPage() {
+export default function DetailPage({ id, wishList, setWishList }) {
   const location = useLocation();
   const proData = location.state;
   // console.log(proData);
@@ -28,6 +28,35 @@ export default function DetailPage() {
 
     console.log("Pruduct ID = ", proId);
     // setCartItems([...cartItems, { id: id, name: title, url: url }]);
+  }
+
+  function handleWish(proId) {
+    // console.log("Pruduct ID = ", proId);
+    // let wishListQty = wishList.length;
+    // let isAdded = false;
+    // if (wishListQty > 0) {
+    //   wishList.map((el) => {
+    //     if (el.id == proId) {
+    //       isAdded = true;
+    //     }
+    //   });
+    //   if (isAdded) {
+    //     setWishList(wishList.filter((el) => el.id !== proId));
+    //   }
+    // }
+    // if (isAdded == false) {
+    //   setWishList([...wishList, { id: id, name: title, url: url }]);
+    // }
+  }
+
+  function inWishList(id) {
+    let result = false;
+    wishList.map((el) => {
+      if (el.id == id) {
+        result = true;
+      }
+    });
+    return result;
   }
 
   return (
@@ -76,16 +105,17 @@ export default function DetailPage() {
           <div className="d-flex ">
             <span className="deText">Quantity : </span>
             <div className="deQty">
-              <a > - </a>
+              <a> - </a>
               <span className="qty">{proData.cartItems.length}</span>
               <a
                 onClick={() => {
                   handleCartItems(proData.id);
                   // console.log(proData.id);
-
                 }}
-              > + </a>
-
+              >
+                {" "}
+                +{" "}
+              </a>
             </div>
           </div>
           <div className="d-flex gap-4 pt-4">
@@ -96,7 +126,18 @@ export default function DetailPage() {
               Buy it Cart
             </button>
             <button className="btn btn-light rounded-5 p-3 text-white">
-              <i class="bi bi-heart"></i>
+              <a
+                className="d-flex justify-content-end"
+                onClick={() => {
+                  handleWish(id);
+                }}
+              >
+                {inWishList(id) ? (
+                  <i class="bi bi-heart-fill"></i>
+                ) : (
+                  <i class="bi bi-heart"></i>
+                )}
+              </a>
             </button>
           </div>
           <hr />
