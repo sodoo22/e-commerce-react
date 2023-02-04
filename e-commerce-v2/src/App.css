@@ -1,0 +1,561 @@
+* {
+  box-sizing: border-box;
+}
+
+#root {
+  background-color: #292D32;
+}
+
+.App {
+  background-color: white;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.popProductContainer {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  background-color: white;
+  padding: 20px;
+}
+
+.Product-Image {
+  height: 130px;
+  pointer-events: none;
+}
+
+.App h2 {
+  margin-top: 30px;
+}
+
+.contaner {
+  /* position: relative; */
+  text-align: left;
+  margin-top: 30px;
+  width: 300px;
+  height: 300px;
+  border-radius: 5px;
+  border: 1px solid grey;
+  background-color: white;
+}
+
+.popProductImg {
+  margin-top: 5px;
+  text-align: center;
+}
+
+.bluetext {
+  color: #003F62;
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+.profile img {
+  border-radius: 50%;
+  height: 35px;
+  width: 35px;
+  margin-top: 0;
+  margin-left: 10px;
+}
+
+.profile {
+  color: rgb(132, 132, 132);
+  justify-content: left;
+  /* align-items: center; */
+  margin-top: 0;
+}
+
+.textbox {
+  margin-left: 20px;
+
+}
+
+.textbox a {
+  text-decoration: none;
+}
+
+.textbox a:hover {
+  text-decoration: underline
+}
+
+.textbox h2 {
+  color: rgb(42, 42, 42);
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+.price {
+  color: #4A4A4A;
+  font-size: 17px;
+  font-weight: 600;
+  margin-top: 5px;
+}
+
+.bi {
+  color: rgb(251, 54, 117);
+  font-size: 20px;
+  margin-right: 4px;
+}
+
+.cardImage {
+  position: absolute;
+  right: 15px;
+  bottom: 25px;
+  width: 40px;
+  cursor: pointer;
+}
+
+.Menus {
+  margin-left: 1px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.Header-Info {
+  font-size: 14px;
+  font-weight: 400;
+  color: #292D32;
+  display: flex;
+  justify-content: space-between;
+  height: 74px;
+  align-items: center;
+  padding: 0 60px;
+}
+
+.Header-Info-R {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Header-Info .bi {
+  color: #a8a8a8;
+  font-size: 18px;
+  margin-right: 15px;
+}
+
+.Header-Info .OurStore {
+  margin-right: 30px;
+}
+
+.navMenu {
+  /* position: fixed; */
+  z-index: 99;
+}
+
+.MainHeader {
+  /* position: fixed; */
+  z-index: 99;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #003F62;
+  height: 100px;
+  padding: 0 60px;
+}
+
+.MainHeader img {
+  width: 130px;
+}
+
+.MainHeader .User-Info {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  width: 250px;
+  color: white;
+  margin-right: 40px;
+}
+
+.User-Info-R {
+  /* padding: 5px; */
+  position: relative;
+  text-align: center;
+  width: 23px;
+  height: 23px;
+  font-size: 15px;
+  background-color: darkorange;
+  border-radius: 50%;
+}
+
+.contaner-product-slide {
+  display: flex;
+  position: relative;
+  text-align: left;
+  margin-top: 30px;
+  width: 400px;
+  height: 150px;
+  border-radius: 5px;
+  border: 1px solid grey;
+  background-color: white;
+
+}
+
+.ProductSliderContainer {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  /* overflow: hidden; */
+  gap: 8=30px;
+  background-color: white;
+}
+
+.caroContainer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: white;
+}
+
+.caroContainer img {
+  height: 350px;
+}
+
+.caroContainer h2 {
+  color: #1B5A7D;
+  font-weight: 700;
+  margin-bottom: 50px;
+}
+
+.alice-carousel__prev-btn {
+  /* background-color: #003F62; */
+  position: absolute;
+  left: -50%;
+  top: 75px;
+}
+
+.alice-carousel__next-btn {
+  /* background-color: #003F62; */
+  position: absolute;
+  left: 100%;
+  top: 75px;
+}
+
+.banner {
+  max-width: 1315px;
+  height: 417px;
+  background-image: url("images/banner1.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 20px;
+}
+
+.banner-title {
+  text-align: center;
+  /* padding-left: 500px; */
+  padding-top: 100px;
+  color: #2E8FC5;
+  font-weight: 700;
+  font-size: 41px;
+
+}
+
+.banner-title p {
+  font-size: 18px;
+  color: white;
+}
+
+
+.container-banner .alice-carousel__dots {
+  position: absolute;
+  top: 330px;
+  left: 150px;
+}
+
+.alice-carousel__dots-item:not(.__custom) {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  border-radius: 50%;
+  background-color: #e0e4fb;
+}
+
+.alice-carousel__dots-item:not(.__custom):not(:last-child) {
+  margin-right: 20px;
+}
+
+.alice-carousel__dots-item:not(.__custom):hover,
+.alice-carousel__dots-item:not(.__custom).__active {
+  background-color: #f27f09;
+}
+
+.star-svg {
+  width: 25px;
+}
+
+.wishDivCon {
+  position: absolute;
+  /* text-align: center; */
+  color: #f27f09;
+  padding: 10px;
+  top: 130px;
+  right: 600px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  z-index: 20;
+  width: 300px;
+  display: none;
+}
+
+.cartItemsDivCon {
+  position: absolute;
+  /* text-align: center; */
+  color: #1B5A7D;
+  padding: 10px;
+  top: 130px;
+  right: 500px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  z-index: 20;
+  width: 270px;
+  display: none;
+}
+
+.User-Info .bi {
+  position: relative;
+  color: #a8a8a8;
+  font-size: 16px;
+  margin-right: 5px;
+}
+
+
+
+
+
+
+/* ----------  Detail Page ----------- */
+
+.deCol-L {
+  border: 1px solid grey;
+  border-radius: 20px;
+  width: 100%;
+  margin-left: 50px;
+}
+
+.deCol-L img {
+  width: 100%;
+}
+
+.deCol-R {
+  margin-left: 50px;
+  width: 100%;
+  margin-right: 50px;
+}
+
+.deCol-R .bi {
+  color: grey;
+}
+
+.deName {
+  font-size: 30px;
+  font-weight: 500;
+  color: #003F62;
+  /* margin-bottom: 30px; */
+}
+
+.dePrice {
+  font-size: 30px;
+  font-weight: 600;
+  color: #4A4A4A;
+}
+
+.deIsStock,
+.deIsStock .bi {
+  color: green;
+}
+
+
+
+.deText {
+  font-size: 18px;
+  font-weight: 500;
+  color: #232323;
+}
+
+.deQty {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 20px;
+  background-color: #dddddd;
+  width: 100px;
+  border: 1px solid grey;
+}
+
+.deQty a {
+  text-decoration: none;
+  color: gray;
+  text-align: center;
+  border-right: 1px solid grey;
+  border-left: 1px solid grey;
+  width: 30px;
+  cursor: pointer;
+}
+
+/* ----------  Costumer reviews comp ----------- */
+
+.cosRevDiv {
+  width: 100%;
+  border: 1px solid grey;
+  border-radius: 10px;
+  padding: 50px;
+  margin-top: 30px;
+}
+
+.cosRevDiv a {
+  color: white;
+  background-color: #003F62;
+  padding: 10px 20px;
+}
+
+
+/* ----------  Footer comp ----------- */
+
+.footerConDiv {
+  background-color: #E2F4FF;
+  padding: 50px;
+  /* color: #1B5A7D; */
+}
+
+.footSubs {
+  background-color: white;
+  border-radius: 20px;
+}
+
+.footSubs h1 {
+  font-size: 30px;
+  font-weight: 700;
+  color: #1B5A7D;
+}
+
+.footSubs input {
+  /* position: relative; */
+  width: 388px;
+  background-color: #f27f09;
+  border: none;
+  border-radius: 20px;
+  padding: 20px;
+  color: white;
+}
+
+.footerInputDiv {
+  position: relative;
+}
+
+.sendBtn {
+  position: absolute;
+  font-size: 20px;
+  cursor: pointer;
+  color: white;
+  padding: 10px;
+  background-color: #f27f09;
+  left: 330px;
+  top: 8px;
+  z-index: 99;
+}
+
+.footSubs input::placeholder {
+  color: white;
+}
+
+.footSubs .bi {
+  font-size: 40px;
+  color: #f27f09;
+  margin-right: 20px;
+}
+
+.footSubs p {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.footerList h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1B5A7D;
+}
+
+.footerList a {
+  text-decoration: none;
+  font-size: 19px;
+  font-weight: 400;
+  color: #1B5A7D;
+
+}
+
+
+
+
+
+
+
+.wishlist-product,
+.cartadd-product {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+}
+
+.wishlist-product img,
+.cartadd-product img {
+  width: 100px;
+}
+
+
+
+/* -------------------- Cart page ----------------- */
+
+.cartDivHead {
+  background-color: #E2F4FF;
+
+}
+
+
+.cartDiv input,
+.cartDiv select {
+  /* position: relative; */
+  width: 100%;
+  border: 1px solid grey;
+  border-radius: 20px;
+  padding: 10px 15px;
+}
+
+.cartDiv input::placeholder {
+  color: gray;
+}
+
+.cartDiv select option {
+  padding: 10px;
+}
+
+
+/* --------------------  Sign up ----------------- */
+
+
+.signupDiv input {
+  /* position: relative; */
+  width: 100%;
+  border: 1px solid grey;
+  border-radius: 10px;
+  padding: 10px 15px;
+  margin-bottom: 20px;
+}
+
+.signupDiv input::placeholder {
+  color: gray;
+}
+
+.signupDiv button {
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+
+
+/* --------------- TEST from Macbook ------------------------ */
+
+/* --------------- before wishlist liked function edit ------------------------ */
