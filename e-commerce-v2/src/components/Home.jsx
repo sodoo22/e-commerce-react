@@ -1,7 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import PopFunc from "./PopFunc";
-import products from "../data/PopProducts";
 import ProductSlide from "./ProductSlide";
 import AliceCarousel from "react-alice-carousel";
 import carouselData from "../data/carousel";
@@ -12,6 +11,7 @@ import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Link } from "react-router-dom";
+// import products from "../data/PopProducts";
 
 export default function Home({
   wishList,
@@ -19,10 +19,11 @@ export default function Home({
   cartItems,
   setCartItems,
 }) {
+  const URL = "http://localhost:8080/products";
   const [show, setShow] = useState(false);
 
   // const [wishListProduct, setWishListProduct] = useState([]);
-  const [productList, setProductList] = useState(products);
+  // const [productList, setProductList] = useState(products); // data from folder
   const [heart, setHeart] = useState(false);
 
   const responsiveSlide1 = {
@@ -37,6 +38,19 @@ export default function Home({
     1024: { items: 3 },
     1440: { items: 4 },
   };
+
+  const [productList, setProductList] = useState([]); // data from server
+
+  useEffect(() => {
+    fetchAllData();
+  }, []);
+
+  async function fetchAllData() {
+    const FETCHED_DATA = await fetch(URL);
+    const FETCHED_JSON = await FETCHED_DATA.json();
+    console.log(FETCHED_JSON);
+    setProductList(FETCHED_JSON.data);
+  }
 
   function handleModal(productId, isShow) {
     console.log(productId);
@@ -71,29 +85,36 @@ export default function Home({
     );
   });
 
-  const productsList = productList.map((product) => {
-    return (
-      <PopFunc
-        id={product.id}
-        url={product.productImageUrl}
-        productImageUrl={product.productImageUrl}
-        title={product.title}
-        price={product.price}
-        votes={product.votes}
-        cardImage={product.cardImage}
-        // showElem={showElement}
-        handleModal={handleModal}
-        show={product.show}
-        setShow={setShow}
-        wishList={wishList}
-        setWishList={setWishList}
-        cartItems={cartItems}
-        setCartItems={setCartItems}
-        heart={setHeart}
-        setHeart={setHeart}
-      />
-    );
-  });
+  // populate data between 2 ranges (array)
+  function populateProduct(min, max) {
+    const productsList = productList.map((product, index) => {
+      if (index >= min && index <= max) {
+        return (
+          <PopFunc
+            id={product.id}
+            url={product.productImageUrl}
+            productImageUrl={product.productImageUrl}
+            title={product.title}
+            price={product.price}
+            votes={product.votes}
+            cardImage={product.cardImage}
+            // showElem={showElement}
+            handleModal={handleModal}
+            show={product.show}
+            setShow={setShow}
+            wishList={wishList}
+            setWishList={setWishList}
+            cartItems={cartItems}
+            setCartItems={setCartItems}
+            heart={setHeart}
+            setHeart={setHeart}
+          />
+        );
+      }
+    });
+
+    return productsList;
+  }
 
   const sliderProduct1 = slideProduct1.map((product) => {
     return (
@@ -139,11 +160,12 @@ export default function Home({
       </div>
       <AliceCarousel
         autoPlay
-        autoPlayInterval="3000"
+        autoPlayInterval="5000"
         disableButtonsControls="true"
+        infinite
       >
-        <div className="popProductContainer">{productsList}</div>
-        {/* <div className="popProductContainer">{productsList}</div> */}
+        <div className="popProductContainer"> {populateProduct(0, 7)}</div>
+        <div className="popProductContainer">{populateProduct(8, 15)}</div>
       </AliceCarousel>
 
       <div className="container-banner">
@@ -200,8 +222,9 @@ export default function Home({
           disableButtonsControls="true"
           responsive={responsive}
           mouseTracking
+          infinite
         >
-          {productsList}
+          {populateProduct(0, 15)}
         </AliceCarousel>
       </div>
 
